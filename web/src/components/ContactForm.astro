@@ -1,0 +1,78 @@
+---
+/**
+ * Functional (unstyled) contact form → Astro Action `contact` → Resend.
+ * Works on prerendered pages because it submits via fetch (actions client).
+ */
+import {PUBLIC_TURNSTILE_SITE_KEY} from 'astro:env/client'
+import {sanityFetch} from '@/sanity/client'
+import {NAVIGATION_QUERY} from '@/sanity/queries'
+
+const nav = await sanityFetch<{services: {title: string; showInContactForm?: boolean}[]}>(
+  NAVIGATION_QUERY,
+  {},
+  {services: []},
+)
+const services = nav.services.filter((s) => s.showInContactForm !== false)
+---
+
+<form data-contact-form novalidate>
+  <label>Imię i nazwisko* <input name="name" required autocomplete="name" /></label>
+  <label>E-mail* <input name="email" type="email" required autocomplete="email" /></label>
+  <label>Telefon <input name="phone" type="tel" autocomplete="tel" /></label>
+  <label>Firma <input name="company" autocomplete="organization" /></label>
+  <label>
+    Usługa
+    <select name="service">
+      <option value="">— wybierz —</option>
+      {services.map((s) => <option value={s.title}>{s.title}</option>)}
+    </select>
+  </label>
+  <label>Wiadomość* <textarea name="message" rows="6" required></textarea></label>
+
+  <!-- Honeypot -->
+  <div aria-hidden="true" style="position:absolute;left:-9999px">
+    <label>Strona WWW <input name="website" tabindex="-1" autocomplete="off" /></label>
+  </div>
+
+  <label>
+    <input type="checkbox" name="consent" required />
+    Wyrażam zgodę na przetwarzanie moich danych w celu obsługi zapytania.*
+  </label>
+
+  {PUBLIC_TURNSTILE_SITE_KEY && <div class="cf-turnstile" data-sitekey={PUBLIC_TURNSTILE_SITE_KEY} data-language="pl" />}
+
+  <button type="submit">Wyślij</button>
+  <p data-status role="status" aria-live="polite"></p>
+</form>
+
+{PUBLIC_TURNSTILE_SITE_KEY && <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer />}
+
+<script>
+  import {actions, isInputError} from 'astro:actions'
+
+  document.querySelectorAll<HTMLFormElement>('[data-contact-form]').forEach((form) => {
+    const status = form.querySelector<HTMLElement>('[data-status]')!
+    const button = form.querySelector<HTMLButtonElement>('button[type=submit]')!
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault()
+      button.disabled = true
+      status.textContent = 'Wysyłanie…'
+
+      const {error} = await actions.contact(new FormData(form))
+
+      if (!error) {
+        form.reset()
+        status.textContent = 'Dziękujemy! Odpowiemy najszybciej jak to możliwe.'
+      } else if (isInputError(error)) {
+        status.textContent = Object.values(error.fields).flat().join(' ')
+      } else {
+        status.textContent = error.message || 'Coś poszło nie tak. Spróbuj ponownie lub zadzwoń.'
+      }
+
+      // Reset Turnstile widget for another attempt
+      ;(window as any).turnstile?.reset?.()
+      button.disabled = false
+    })
+  })
+</script>

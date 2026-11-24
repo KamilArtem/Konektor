@@ -1,0 +1,32 @@
+---
+import {toHTML} from '@portabletext/to-html'
+import {urlFor} from '@/sanity/image'
+
+interface Props {
+  value?: any[] | null
+}
+
+const {value} = Astro.props
+
+const html = value
+  ? toHTML(value, {
+      components: {
+        types: {
+          image: ({value}) =>
+            value?.asset
+              ? `<img src="${urlFor(value).width(1200).auto('format').url()}" alt="${value.alt ?? ''}" loading="lazy" />`
+              : '',
+        },
+        marks: {
+          link: ({children, value}) => {
+            const href: string = value?.href ?? '#'
+            const ext = href.startsWith('http')
+            return `<a href="${href}"${ext ? ' target="_blank" rel="noopener noreferrer"' : ''}>${children}</a>`
+          },
+        },
+      },
+    })
+  : ''
+---
+
+<div class="prose" set:html={html} />

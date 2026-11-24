@@ -1,0 +1,12 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import SectionRenderer from '@/components/SectionRenderer.astro'
+import {sanityFetch} from '@/sanity/client'
+import {HOME_QUERY} from '@/sanity/queries'
+
+const home = await sanityFetch<any>(HOME_QUERY, {}, null)
+---
+
+<BaseLayout seo={home?.seo}>
+  {home ? <SectionRenderer sections={home.sections} /> : <h1>Konektor – strona w budowie</h1>}
+</BaseLayout>

@@ -1,0 +1,117 @@
+---
+/**
+ * Maps Sanity page-builder sections to components.
+ * UI pass: create one component per section in ./sections/ and swap the
+ * placeholder markup below. Keep the `_type` keys in sync with
+ * studio/schemaTypes/sections.ts.
+ */
+import PortableText from '@/components/PortableText.astro'
+import ContactForm from '@/components/ContactForm.astro'
+import {urlFor} from '@/sanity/image'
+
+interface Props {
+  sections?: any[] | null
+}
+
+const {sections = []} = Astro.props
+---
+
+{
+  sections?.map((s) => {
+    switch (s._type) {
+      case 'heroSection':
+        return (
+          <section data-section={s._type}>
+            {s.eyebrow && <p>{s.eyebrow}</p>}
+            <h1>{s.heading}</h1>
+            {s.text && <p>{s.text}</p>}
+            {s.links?.map((l: any) => <a href={l.href}>{l.label}</a>)}
+            {s.image?.asset && <img src={urlFor(s.image).width(1600).auto('format').url()} alt="" />}
+          </section>
+        )
+      case 'featuresSection':
+        return (
+          <section data-section={s._type}>
+            <h2>{s.heading}</h2>
+            {s.text && <p>{s.text}</p>}
+            <ul>{s.items?.map((i: any) => <li><h3>{i.title}</h3><p>{i.text}</p></li>)}</ul>
+          </section>
+        )
+      case 'textImageSection':
+        return (
+          <section data-section={s._type}>
+            <h2>{s.heading}</h2>
+            <PortableText value={s.body} />
+            {s.image?.asset && <img src={urlFor(s.image).width(1200).auto('format').url()} alt="" />}
+          </section>
+        )
+      case 'servicesSection':
+        return (
+          <section data-section={s._type}>
+            <h2>{s.heading}</h2>
+            <ul>{s.services?.map((svc: any) => <li><a href={`/serwisy/${svc.slug}`}>{svc.title}</a><p>{svc.excerpt}</p></li>)}</ul>
+          </section>
+        )
+      case 'statsSection':
+        return (
+          <section data-section={s._type}>
+            <h2>{s.heading}</h2>
+            <dl>{s.items?.map((i: any) => <><dt>{i.prefix}{i.value}{i.suffix}</dt><dd>{i.label}</dd></>)}</dl>
+          </section>
+        )
+      case 'timelineSection':
+        return (
+          <section data-section={s._type}>
+            <h2>{s.heading}</h2>
+            <ol>{s.items?.map((i: any) => <li><strong>{i.date}</strong> {i.title}<p>{i.text}</p></li>)}</ol>
+          </section>
+        )
+      case 'logosSection':
+        return (
+          <section data-section={s._type}>
+            <h2>{s.heading}</h2>
+            <ul>{s.logos?.map((l: any) => <li><img src={urlFor(l.logo).height(80).auto('format').url()} alt={l.name} /></li>)}</ul>
+          </section>
+        )
+      case 'certificatesSection':
+        return (
+          <section data-section={s._type}>
+            <h2>{s.heading}</h2>
+            <ul>{s.certificates?.map((c: any) => <li>{c.fileUrl ? <a href={c.fileUrl}>{c.title}</a> : c.title}</li>)}</ul>
+          </section>
+        )
+      case 'faqSection':
+        return (
+          <section data-section={s._type}>
+            <h2>{s.heading}</h2>
+            {s.items?.map((i: any) => <details><summary>{i.question}</summary><PortableText value={i.answer} /></details>)}
+          </section>
+        )
+      case 'contactSection':
+        return (
+          <section data-section={s._type} id="kontakt">
+            <h2>{s.heading}</h2>
+            {s.text && <p>{s.text}</p>}
+            <ContactForm />
+          </section>
+        )
+      case 'ctaSection':
+        return (
+          <section data-section={s._type}>
+            <h2>{s.heading}</h2>
+            {s.text && <p>{s.text}</p>}
+            {s.links?.map((l: any) => <a href={l.href}>{l.label}</a>)}
+          </section>
+        )
+      case 'richTextSection':
+        return (
+          <section data-section={s._type}>
+            {s.heading && <h1>{s.heading}</h1>}
+            <PortableText value={s.body} />
+          </section>
+        )
+      default:
+        return import.meta.env.DEV ? <pre>Unknown section: {s._type}</pre> : null
+    }
+  })
+}

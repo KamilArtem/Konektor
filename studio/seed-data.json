@@ -1,0 +1,220 @@
+[
+  {
+    "_id": "siteSettings",
+    "_type": "siteSettings",
+    "companyName": "Konektor",
+    "legalName": "Konektor Sp. z o.o.",
+    "phone": "+48 781 262 626",
+    "email": "bok@konektor.com.pl",
+    "address": {
+      "street": "ul. Gen. Ottokara Brzozy-Brzeziny 22",
+      "postalCode": "05-220",
+      "city": "Zielonka"
+    },
+    "footerTagline": "Chronimy to, co najważniejsze. Precyzyjnie, niezawodnie, z zaufaniem.",
+    "formRecipients": ["bok@konektor.com.pl"],
+    "formSuccessMessage": "Dziękujemy! Twoja wiadomość została wysłana. Odpowiemy najszybciej jak to możliwe.",
+    "seo": {
+      "title": "Konektor – Systemy Zabezpieczeń Technicznych (SSP, DSO, SSWiN, SKD, CCTV)",
+      "description": "Projektujemy, instalujemy i serwisujemy nowoczesne techniczne systemy bezpieczeństwa dla firm i instytucji. Certyfikowane instalacje i pełne wsparcie techniczne."
+    }
+  },
+  {
+    "_id": "service-ssp",
+    "_type": "service",
+    "order": 1,
+    "title": "Systemy Sygnalizacji Pożaru",
+    "shortTitle": "SSP",
+    "slug": { "_type": "slug", "current": "systemy-sygnalizacji-pozaru" },
+    "excerpt": "Wczesne wykrywanie zagrożeń pożarowych, automatyczne alarmowanie i koordynacja procedur bezpieczeństwa.",
+    "showInContactForm": true,
+    "hero": {
+      "heading": "Systemy sygnalizacji pożaru –",
+      "highlight": "bezpieczeństwo na najwyższym poziomie",
+      "intro": "Projektujemy, instalujemy i serwisujemy nowoczesne systemy sygnalizacji pożaru, które umożliwiają szybkie wykrycie zagrożenia i automatyczne uruchomienie procedur alarmowych. Zapewniamy ochronę życia, mienia oraz pełną zgodność z aktualnymi przepisami."
+    },
+    "benefits": [
+      {
+        "_key": "b1",
+        "title": "Wczesne wykrywanie zagrożeń",
+        "text": "System natychmiast wykrywa dym lub ogień, umożliwiając szybką reakcję zanim pożar się rozwinie. Dzięki precyzyjnym czujnikom minimalizujemy ryzyko strat i zagrożenia dla ludzi."
+      },
+      {
+        "_key": "b2",
+        "title": "Niezawodność działania",
+        "text": "Wykorzystujemy sprawdzone technologie oraz certyfikowane urządzenia, które gwarantują wysoką skuteczność systemu w każdej sytuacji i pełną sprawność."
+      },
+      {
+        "_key": "b3",
+        "title": "Kompleksowa obsługa",
+        "text": "Zapewniamy pełne wsparcie – od projektu, przez instalację, po serwis i szkolenia użytkowników. Zawsze służymy pomocą w doborze najlepszego rozwiązania."
+      }
+    ],
+    "seo": {
+      "title": "Systemy Sygnalizacji Pożaru (SSP) | Konektor",
+      "description": "Profesjonalne projektowanie, montaż i serwis systemów sygnalizacji pożarowej. Sprawdź ofertę firmy Konektor."
+    }
+  },
+  {
+    "_id": "service-dso",
+    "_type": "service",
+    "order": 2,
+    "title": "Dźwiękowe Systemy Ostrzegawcze",
+    "shortTitle": "DSO",
+    "slug": { "_type": "slug", "current": "dzwiekowe-systemy-ostrzegawcze" },
+    "excerpt": "Precyzyjne, zrozumiałe i zautomatyzowane komunikaty głosowe sterujące ewakuacją ludzi w sytuacjach kryzysowych.",
+    "showInContactForm": true,
+    "hero": {
+      "heading": "Dźwiękowe Systemy Ostrzegawcze –",
+      "highlight": "skuteczna i bezpieczna ewakuacja",
+      "intro": "Zapewniamy czytelne komunikaty głosowe oraz automatyczną koordynację ewakuacji w obiektach o dużym natężeniu ruchu ludzi."
+    },
+    "benefits": [
+      {
+        "_key": "b1",
+        "title": "Wysoka zrozumiałość mowy",
+        "text": "Precyzyjne strojenie akustyczne gwarantuje, że komunikaty ewakuacyjne są doskonale słyszalne w każdych warunkach hałasu."
+      },
+      {
+        "_key": "b2",
+        "title": "Integracja z SSP",
+        "text": "Bezpośrednie sprzężenie z centralą pożarową pozwala na natychmiastowe rozgłaszanie komunikatów strefowych."
+      },
+      {
+        "_key": "b3",
+        "title": "Certyfikacja CNBOP",
+        "text": "Urządzenia spełniające restrykcyjne normy EN 54 wymagane w budynkach użyteczności publicznej."
+      }
+    ]
+  },
+  {
+    "_id": "service-sswin",
+    "_type": "service",
+    "order": 3,
+    "title": "Systemy Sygnalizacji Włamania i Napadu",
+    "shortTitle": "SSWiN",
+    "slug": { "_type": "slug", "current": "systemy-sygnalizacji-wlamania-i-napadu" },
+    "excerpt": "Zaawansowane systemy alarmowe chroniące obiekty przed intruzami i nieuprawnionym dostępem.",
+    "showInContactForm": true,
+    "hero": {
+      "heading": "Systemy sygnalizacji włamania i napadu –",
+      "highlight": "niezawodna ochrona mienia",
+      "intro": "Projektujemy i instalujemy systemy antywłamaniowe najwyższej klasy bezpieczeństwa, zintegrowane ze stacjami monitorowania."
+    }
+  },
+  {
+    "_id": "service-skd",
+    "_type": "service",
+    "order": 4,
+    "title": "Systemy Kontroli Dostępu",
+    "shortTitle": "SKD",
+    "slug": { "_type": "slug", "current": "systemy-kontroli-dostepu" },
+    "excerpt": "Zarządzanie uprawnieniami wstępu, ewidencja czasu pracy i kontrola stref zastrzeżonych.",
+    "showInContactForm": true,
+    "hero": {
+      "heading": "Systemy kontroli dostępu –",
+      "highlight": "pełna kontrola nad Twoim obiektem",
+      "intro": "Nowoczesne czytniki kart, biometria i bramki dostępowe ułatwiające zarządzanie ruchem personelu i gości."
+    }
+  },
+  {
+    "_id": "service-cctv",
+    "_type": "service",
+    "order": 5,
+    "title": "Systemy Monitoringu Wizyjnego",
+    "shortTitle": "CCTV",
+    "slug": { "_type": "slug", "current": "systemy-monitoringu-wizyjnego" },
+    "excerpt": "Kamery wysokiej rozdzielczości, analiza obrazu AI i bezpieczny podgląd zdalny 24/7.",
+    "showInContactForm": true,
+    "hero": {
+      "heading": "Monitoring wizyjny –",
+      "highlight": "precyzyjny obraz i inteligentna analityka",
+      "intro": "Telewizja przemysłowa IP w jakości 4K z inteligentnym wykrywaniem incydentów i rejestracją zdarzeń."
+    }
+  },
+  {
+    "_id": "service-gasnice",
+    "_type": "service",
+    "order": 6,
+    "title": "Gaśnice i Hydranty",
+    "shortTitle": "Sprzęt PPOŻ",
+    "slug": { "_type": "slug", "current": "gasnice-i-hydranty" },
+    "excerpt": "Przeglądy okresowe, legalizacja, dobór i montaż podręcznego sprzętu gaśniczego oraz sieci hydrantowej.",
+    "showInContactForm": true,
+    "hero": {
+      "heading": "Gaśnice i hydranty –",
+      "highlight": "regularny serwis i zgodność z normami",
+      "intro": "Prowadzimy okresowe badania wydajności hydrantów, próby ciśnieniowe węży oraz legalizację gaśnic zgodnie z polskim prawem."
+    }
+  },
+  {
+    "_id": "clientLogo-imbex",
+    "_type": "clientLogo",
+    "order": 1,
+    "name": "IMBEX"
+  },
+  {
+    "_id": "clientLogo-multikino",
+    "_type": "clientLogo",
+    "order": 2,
+    "name": "Multikino"
+  },
+  {
+    "_id": "clientLogo-iveco",
+    "_type": "clientLogo",
+    "order": 3,
+    "name": "Iveco"
+  },
+  {
+    "_id": "homePage",
+    "_type": "homePage",
+    "title": "Strona główna",
+    "sections": [
+      {
+        "_key": "hero1",
+        "_type": "heroSection",
+        "eyebrow": "Bezpieczeństwo techniczne",
+        "heading": "Projektujemy, instalujemy i serwisujemy nowoczesne systemy zabezpieczeń",
+        "text": "Od ponad 20 lat dostarczamy kompleksowe rozwiązania SSP, DSO, SSWiN, SKD i CCTV dla firm, instytucji i przemysłu.",
+        "links": [
+          { "_key": "l1", "type": "internal", "label": "Zapytaj o ofertę", "href": "/kontakt" },
+          { "_key": "l2", "type": "internal", "label": "Poznaj nasze usługi", "href": "#Services" }
+        ]
+      },
+      {
+        "_key": "services1",
+        "_type": "servicesSection",
+        "eyebrow": "Nasza oferta",
+        "heading": "Kompleksowe systemy bezpieczeństwa",
+        "text": "Wybierz obszar, w którym potrzebujesz profesjonalnego wsparcia inżynieryjnego."
+      },
+      {
+        "_key": "stats1",
+        "_type": "statsSection",
+        "heading": "Zaufanie, które liczy się w liczbach",
+        "text": "Nasze doświadczenie mierzymy satysfakcją klientów i bezawaryjnością wdrożonych instalacji.",
+        "items": [
+          { "_key": "s1", "value": 20, "prefix": "+", "label": "Lat doświadczenia" },
+          { "_key": "s2", "value": 100, "suffix": "%", "label": "Zgodności z normami" },
+          { "_key": "s3", "value": 80, "suffix": "%", "label": "Klientów powracających" }
+        ]
+      },
+      {
+        "_key": "logos1",
+        "_type": "logosSection",
+        "heading": "Zaufali nam"
+      },
+      {
+        "_key": "contact1",
+        "_type": "contactSection",
+        "eyebrow": "Kontakt",
+        "heading": "Porozmawiajmy o zabezpieczeniu Twojego obiektu",
+        "text": "Wypełnij formularz lub zadzwoń bezpośrednio do naszego biura obsługi klienta."
+      }
+    ],
+    "seo": {
+      "title": "Konektor – Techniczne Systemy Zabezpieczeń (SSP, DSO, SKD, CCTV)",
+      "description": "Kompleksowe systemy bezpieczeństwa dla obiektów komercyjnych i użyteczności publicznej. Sprawdź ofertę Konektor."
+    }
+  }
+]

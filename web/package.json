@@ -1,0 +1,28 @@
+{
+  "name": "@konektor/web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro build && astro preview",
+    "check": "astro check",
+    "deploy": "astro build && wrangler deploy",
+    "cf-typegen": "wrangler types"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "^14.4.9",
+    "@astrojs/sitemap": "latest",
+    "@portabletext/to-html": "latest",
+    "@sanity/client": "^7.28.0",
+    "@sanity/image-url": "^2.2.0",
+    "astro": "^7.4.13",
+    "groq": "^6.25.0",
+    "resend": "^6.39.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "latest",
+    "typescript": "^5.9.0",
+    "wrangler": "^4.168.0"
+  }
+}

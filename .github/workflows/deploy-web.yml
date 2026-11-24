@@ -1,0 +1,61 @@
+name: Deploy web
+
+on:
+  push:
+    branches: [main]
+    paths-ignore: ['studio/**', 'docs/**', '**.md']
+  pull_request:
+    paths-ignore: ['studio/**', 'docs/**', '**.md']
+  # Triggered by the Sanity "publish" webhook (see docs/SETUP.md §6)
+  repository_dispatch:
+    types: [sanity-publish]
+  workflow_dispatch:
+
+# Coalesce bursts of Sanity publishes into one deploy
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    env:
+      ASTRO_TELEMETRY_DISABLED: 1
+      SANITY_PROJECT_ID: ${{ vars.SANITY_PROJECT_ID }}
+      SANITY_DATASET: ${{ vars.SANITY_DATASET }}
+      PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.PUBLIC_TURNSTILE_SITE_KEY }}
+      CONTACT_TO_EMAIL: ${{ vars.CONTACT_TO_EMAIL }}
+      CONTACT_FROM_EMAIL: ${{ vars.CONTACT_FROM_EMAIL }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Type check
+        run: npm run check --workspace web
+
+      - name: Build
+        run: npm run build --workspace web
+
+      - name: Upload preview version (PRs)
+        if: github.event_name == 'pull_request'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: web
+          command: versions upload --preview-alias pr-${{ github.event.number }}
+
+      - name: Deploy to production
+        if: github.event_name != 'pull_request'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: web
+          command: deploy

@@ -1,0 +1,91 @@
+---
+import {sanityFetch} from '@/sanity/client'
+import {SETTINGS_QUERY, NAVIGATION_QUERY} from '@/sanity/queries'
+import {urlFor} from '@/sanity/image'
+
+interface Seo {
+  title?: string
+  description?: string
+  ogImage?: any
+  noIndex?: boolean
+}
+
+interface Props {
+  title?: string
+  seo?: Seo | null
+}
+
+const {title, seo} = Astro.props
+
+const [settings, nav] = await Promise.all([
+  sanityFetch<any>(SETTINGS_QUERY, {}, null),
+  sanityFetch<{services: {title: string; shortTitle?: string; slug: string}[]}>(NAVIGATION_QUERY, {}, {services: []}),
+])
+
+const siteName = settings?.companyName ?? 'Konektor'
+const metaTitle = seo?.title || (title ? `${title} | ${siteName}` : settings?.seo?.title || siteName)
+const metaDescription = seo?.description || settings?.seo?.description || ''
+const ogSource = seo?.ogImage ?? settings?.seo?.ogImage
+const ogImage = ogSource?.asset ? urlFor(ogSource).width(1200).height(630).fit('crop').url() : undefined
+const canonical = new URL(Astro.url.pathname, Astro.site)
+const phone = settings?.phone ?? '+48 781 262 626'
+const email = settings?.email ?? 'bok@konektor.com.pl'
+---
+
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{metaTitle}</title>
+    {metaDescription && <meta name="description" content={metaDescription} />}
+    <link rel="canonical" href={canonical} />
+    {seo?.noIndex && <meta name="robots" content="noindex,nofollow" />}
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pl_PL" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={metaTitle} />
+    {metaDescription && <meta property="og:description" content={metaDescription} />}
+    <meta property="og:url" content={canonical} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+  </head>
+  <body>
+    <!-- UI: header/navigation to be designed -->
+    <header>
+      <a href="/">{siteName}</a>
+      <nav aria-label="Główna">
+        <ul>
+          <li>
+            <span>Oferta</span>
+            <ul>
+              {nav.services.map((s) => <li><a href={`/serwisy/${s.slug}`}>{s.title}</a></li>)}
+            </ul>
+          </li>
+          <li><a href="/o-firmie">O firmie</a></li>
+          <li><a href="/certyfikaty">Certyfikaty</a></li>
+          <li><a href="/kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <!-- UI: footer to be designed -->
+    <footer>
+      {settings?.footerTagline && <p>{settings.footerTagline}</p>}
+      <p><a href={`tel:${phone.replace(/\s/g, '')}`}>{phone}</a> · <a href={`mailto:${email}`}>{email}</a></p>
+      {
+        settings?.address && (
+          <address>
+            {settings.address.street}, {settings.address.postalCode} {settings.address.city}
+          </address>
+        )
+      }
+      <p>© {new Date().getFullYear()} {settings?.legalName ?? siteName}</p>
+    </footer>
+  </body>
+</html>

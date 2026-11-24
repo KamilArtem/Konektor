@@ -1,0 +1,20 @@
+---
+import type {GetStaticPaths} from 'astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import SectionRenderer from '@/components/SectionRenderer.astro'
+import {sanityFetch} from '@/sanity/client'
+import {PAGE_QUERY, PAGE_SLUGS_QUERY} from '@/sanity/queries'
+
+export const getStaticPaths = (async () => {
+  const slugs = await sanityFetch<string[]>(PAGE_SLUGS_QUERY, {}, [])
+  return slugs.map((slug) => ({params: {slug}}))
+}) satisfies GetStaticPaths
+
+const {slug} = Astro.params
+const page = await sanityFetch<any>(PAGE_QUERY, {slug}, null)
+if (!page) return Astro.redirect('/404')
+---
+
+<BaseLayout title={page.title} seo={page.seo}>
+  <SectionRenderer sections={page.sections} />
+</BaseLayout>

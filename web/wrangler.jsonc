@@ -1,0 +1,17 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "konektor-web",
+  // `main` and the ASSETS binding are injected by @astrojs/cloudflare.
+  "compatibility_date": "2026-11-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "enabled": true
+  }
+  // Public env vars (SANITY_*, CONTACT_*) are inlined at BUILD time by astro:env.
+  // Secrets are runtime: `npx wrangler secret put RESEND_API_KEY` / TURNSTILE_SECRET_KEY.
+  // Uncomment after the zone konektor.com.pl is active on Cloudflare:
+  // "routes": [
+  //   { "pattern": "www.konektor.com.pl", "custom_domain": true },
+  //   { "pattern": "konektor.com.pl", "custom_domain": true }
+  // ]
+}
