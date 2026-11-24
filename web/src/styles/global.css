@@ -28,7 +28,7 @@
 
   body {
     font-family: var(--font-sans);
-    font-weight: 300; /* Regular body text strictly 300 */
+    font-weight: 400; /* Regular body text strictly 400 */
     background-color: var(--color-surface-bg);
     color: var(--color-text-primary);
     overflow-x: hidden;
@@ -37,15 +37,15 @@
     letter-spacing: -0.01em;
   }
 
-  /* Headings strictly weight 400 */
+  /* Headings strictly weight 500 (Medium) */
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-sans);
-    font-weight: 400 !important;
+    font-weight: 500 !important;
     letter-spacing: -0.025em;
   }
 
   p, span, li, a, input, textarea, select, label {
-    font-weight: 300;
+    font-weight: 400;
   }
 }
 
