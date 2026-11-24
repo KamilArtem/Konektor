@@ -1,0 +1,443 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import {
+  ShieldAlert,
+  Flame,
+  Volume2,
+  Lock,
+  Camera,
+  Layers,
+  ArrowUpRight,
+  CheckCircle2,
+  Sparkles,
+  Info,
+  Maximize2,
+  Sliders,
+  Type
+} from 'lucide-astro'
+---
+
+<BaseLayout title="Design Guidelines & Visual System | Konektor" seo={{title: "Design Guidelines & Visual System | Konektor", noIndex: true}}>
+  <!-- Agency Header -->
+  <header class="border-b border-slate-200/80 bg-white/80 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="/" class="flex items-center gap-2 group">
+          <div class="w-8 h-8 rounded-lg bg-red-600 flex items-center justify-center text-white font-bold text-sm tracking-tight shadow-sm group-hover:scale-105 transition-transform duration-300">
+            K
+          </div>
+          <span class="font-bold tracking-tight text-slate-900 text-lg">KONEKTOR</span>
+        </a>
+        <div class="h-4 w-px bg-slate-200 mx-2"></div>
+        <span class="text-xs font-semibold uppercase tracking-[0.2em] px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 border border-slate-200/60">
+          Design System v2.0
+        </span>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+        <a href="#philosophy" class="hover:text-slate-900 transition-colors">Filozofia</a>
+        <a href="#color-matrix" class="hover:text-slate-900 transition-colors">Paleta Kolorów</a>
+        <a href="#typography" class="hover:text-slate-900 transition-colors">Typografia</a>
+        <a href="#spacings" class="hover:text-slate-900 transition-colors">Siatka & Odstępy</a>
+        <a href="#hardware-ui" class="hover:text-slate-900 transition-colors">Architektura Hardware</a>
+        <a href="/styleguide" class="text-red-600 font-semibold flex items-center gap-1 hover:underline">
+          Styleguide Lab <ArrowUpRight class="w-3.5 h-3.5" />
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="min-h-screen bg-[#F8F9FA] text-slate-900 pb-32">
+    <!-- Hero Section -->
+    <section class="pt-20 pb-16 px-6 max-w-7xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 border border-red-200/60 text-red-700 text-xs font-semibold uppercase tracking-[0.2em] mb-6">
+        <Sparkles class="w-3.5 h-3.5" /> Specyfikacja Wizualna & Design Guidelines
+      </div>
+      <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-900 max-w-4xl leading-[1.1] mb-6">
+        Zaprojektowane dla zaufania, precyzji i inżynierii bezpieczeństwa.
+      </h1>
+      <p class="text-lg sm:text-xl text-slate-600 max-w-3xl leading-relaxed">
+        System wizualny Konektor łączy surowość zaawansowanych systemów zabezpieczeń (PPOŻ, CCTV, Kontrola Dostępu) z luksusowym, przestrzennym interfejsem klasy enterprise.
+      </p>
+    </section>
+
+    <!-- SECTION 1: Filozofia & DNA -->
+    <section id="philosophy" class="py-12 px-6 max-w-7xl mx-auto border-t border-slate-200/80">
+      <div class="mb-8">
+        <span class="text-xs font-mono font-semibold uppercase text-slate-400 tracking-wider">01. Fundamenty</span>
+        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 mt-1">Zasady Architektury Wizualnej</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-8 rounded-2xl bg-white border border-slate-200/80 shadow-[0_2px_12px_-4px_rgba(15,23,42,0.04)]">
+          <div class="w-10 h-10 rounded-xl bg-red-50 text-red-600 flex items-center justify-center mb-6 border border-red-100">
+            <Flame class="w-5 h-5" />
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2">Signal & Authority</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Czerwień sygnalizacyjna (<span class="font-mono text-red-600 font-semibold">#D92D20</span>) zarezerwowana jest wyłącznie dla kluczowych akcentów, alarmów PPOŻ i głównych akcji (Primary CTA). Nie rozmywamy jej w tłumie.
+          </p>
+        </div>
+
+        <div class="p-8 rounded-2xl bg-white border border-slate-200/80 shadow-[0_2px_12px_-4px_rgba(15,23,42,0.04)]">
+          <div class="w-10 h-10 rounded-xl bg-slate-100 text-slate-800 flex items-center justify-center mb-6 border border-slate-200">
+            <Layers class="w-5 h-5" />
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2">Double-Bezel Hardware</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Unikamy płaskich, tanich krawędzi. Kluczowe elementy konstrukcyjne bazują na fizycznej strukturze urządzeń alarmowych – zewnętrzna ramka z precyzyjnym wewnętrznym wcięciem.
+          </p>
+        </div>
+
+        <div class="p-8 rounded-2xl bg-white border border-slate-200/80 shadow-[0_2px_12px_-4px_rgba(15,23,42,0.04)]">
+          <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-6 border border-blue-100">
+            <Sliders class="w-5 h-5" />
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2">Spatial Breathing Room</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Każda sekcja ma gigantyczny oddech (<code class="text-xs bg-slate-100 px-1.5 py-0.5 rounded font-mono">py-24</code> do <code class="text-xs bg-slate-100 px-1.5 py-0.5 rounded font-mono">py-36</code>). Przejrzystość redukuje stres decyzyjny menedżerów bezpieczeństwa.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: PALETA KOLORÓW -->
+    <section id="color-matrix" class="py-16 px-6 max-w-7xl mx-auto border-t border-slate-200/80">
+      <div class="mb-10">
+        <span class="text-xs font-mono font-semibold uppercase text-slate-400 tracking-wider">02. Barwa i Kontrast</span>
+        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 mt-1">System Barw: Light Enterprise</h2>
+        <p class="text-slate-600 text-sm mt-1">Czyste tło laboratoryjne z wysokim wskaźnikiem kontrastu (WCAG AAA).</p>
+      </div>
+
+      <!-- Color Groups -->
+      <div class="space-y-12">
+        <!-- Brand Primary -->
+        <div>
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500 mb-4">A. Główna Czerwień Bezpieczeństwa (Signal Crimson)</h3>
+          <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-4">
+            <div class="p-4 rounded-xl bg-[#FEF3F2] border border-[#FECDCA]">
+              <div class="h-16 rounded-lg bg-[#FEF3F2] border border-[#FECDCA] mb-3"></div>
+              <p class="text-xs font-bold text-slate-900">Brand 50 (Subtle)</p>
+              <p class="text-[11px] font-mono text-slate-500">#FEF3F2</p>
+              <p class="text-[10px] text-slate-400 mt-1">Tła badge, hover chip</p>
+            </div>
+            <div class="p-4 rounded-xl bg-white border border-slate-200">
+              <div class="h-16 rounded-lg bg-[#FECDCA] mb-3"></div>
+              <p class="text-xs font-bold text-slate-900">Brand 200 (Border)</p>
+              <p class="text-[11px] font-mono text-slate-500">#FECDCA</p>
+              <p class="text-[10px] text-slate-400 mt-1">Obramowania akcentów</p>
+            </div>
+            <div class="p-4 rounded-xl bg-white border border-slate-200">
+              <div class="h-16 rounded-lg bg-[#F04438] mb-3"></div>
+              <p class="text-xs font-bold text-slate-900">Brand 500 (Base)</p>
+              <p class="text-[11px] font-mono text-slate-500">#F04438</p>
+              <p class="text-[10px] text-slate-400 mt-1">Wizualne punkty uwagi</p>
+            </div>
+            <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm ring-2 ring-red-600/20">
+              <div class="h-16 rounded-lg bg-[#D92D20] mb-3 flex items-end p-2">
+                <span class="text-[10px] font-bold text-white bg-black/30 px-1.5 py-0.5 rounded">PRIMARY</span>
+              </div>
+              <p class="text-xs font-bold text-slate-900">Brand 600 (Primary)</p>
+              <p class="text-[11px] font-mono text-slate-500">#D92D20</p>
+              <p class="text-[10px] text-slate-500 mt-1 font-semibold">Główne przyciski & CTA</p>
+            </div>
+            <div class="p-4 rounded-xl bg-white border border-slate-200">
+              <div class="h-16 rounded-lg bg-[#B42318] mb-3"></div>
+              <p class="text-xs font-bold text-slate-900">Brand 700 (Hover/Deep)</p>
+              <p class="text-[11px] font-mono text-slate-500">#B42318</p>
+              <p class="text-[10px] text-slate-400 mt-1">Stany aktywne, click</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slate Hierarchy -->
+        <div>
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500 mb-4">B. Neutralna Paleta Architektoniczna (Surface & Slate)</h3>
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+            <div class="p-4 rounded-xl bg-white border border-slate-200">
+              <div class="h-14 rounded-lg bg-[#F8F9FA] border border-slate-300/80 mb-3"></div>
+              <p class="text-xs font-bold text-slate-900">Canvas Base</p>
+              <p class="text-[11px] font-mono text-slate-500">#F8F9FA</p>
+              <p class="text-[10px] text-slate-400 mt-1">Główne tło strony</p>
+            </div>
+            <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
+              <div class="h-14 rounded-lg bg-[#FFFFFF] border border-slate-200 mb-3"></div>
+              <p class="text-xs font-bold text-slate-900">Pure White Card</p>
+              <p class="text-[11px] font-mono text-slate-500">#FFFFFF</p>
+              <p class="text-[10px] text-slate-400 mt-1">Karty, kontenery, modal</p>
+            </div>
+            <div class="p-4 rounded-xl bg-white border border-slate-200">
+              <div class="h-14 rounded-lg bg-[#E2E8F0] mb-3"></div>
+              <p class="text-xs font-bold text-slate-900">Border Light</p>
+              <p class="text-[11px] font-mono text-slate-500">#E2E8F0</p>
+              <p class="text-[10px] text-slate-400 mt-1">Separatory, linie podziału</p>
+            </div>
+            <div class="p-4 rounded-xl bg-white border border-slate-200">
+              <div class="h-14 rounded-lg bg-[#64748B] mb-3"></div>
+              <p class="text-xs font-bold text-slate-900">Text Muted</p>
+              <p class="text-[11px] font-mono text-slate-500">#64748B</p>
+              <p class="text-[10px] text-slate-400 mt-1">Podpisy, metadata</p>
+            </div>
+            <div class="p-4 rounded-xl bg-white border border-slate-200">
+              <div class="h-14 rounded-lg bg-[#334155] mb-3"></div>
+              <p class="text-xs font-bold text-slate-900">Text Secondary</p>
+              <p class="text-[11px] font-mono text-slate-500">#334155</p>
+              <p class="text-[10px] text-slate-400 mt-1">Akapity, opisy usług</p>
+            </div>
+            <div class="p-4 rounded-xl bg-white border border-slate-200">
+              <div class="h-14 rounded-lg bg-[#0F172A] mb-3"></div>
+              <p class="text-xs font-bold text-slate-900">Text Heading</p>
+              <p class="text-[11px] font-mono text-slate-500">#0F172A</p>
+              <p class="text-[10px] text-slate-400 mt-1">Tytuły H1-H3, liczby</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cobalt Engineering -->
+        <div>
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-500 mb-4">C. Inżynieryjny Błękit Wsparcia (Cobalt Tech)</h3>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div class="p-4 rounded-xl bg-[#EFF8FF] border border-[#B2DDFF]">
+              <div class="h-14 rounded-lg bg-[#EFF8FF] border border-[#B2DDFF] mb-3"></div>
+              <p class="text-xs font-bold text-slate-900">Cobalt 50</p>
+              <p class="text-[11px] font-mono text-slate-500">#EFF8FF</p>
+              <p class="text-[10px] text-slate-400 mt-1">Tła certyfikatów i norm</p>
+            </div>
+            <div class="p-4 rounded-xl bg-white border border-slate-200">
+              <div class="h-14 rounded-lg bg-[#0052CC] mb-3"></div>
+              <p class="text-xs font-bold text-slate-900">Cobalt 600</p>
+              <p class="text-[11px] font-mono text-slate-500">#0052CC</p>
+              <p class="text-[10px] text-slate-400 mt-1">Akcent techniczny CCTV / SKD</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: TYPOGRAFIA -->
+    <section id="typography" class="py-16 px-6 max-w-7xl mx-auto border-t border-slate-200/80">
+      <div class="mb-10">
+        <span class="text-xs font-mono font-semibold uppercase text-slate-400 tracking-wider">03. Typografia & Hierarchia</span>
+        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 mt-1">Hierarchia Krojów Pisma</h2>
+        <p class="text-slate-600 text-sm mt-1">
+          Główny krój: <strong class="text-slate-900">Plus Jakarta Sans</strong> (nowoczesny, geometryczny sans o doskonałej czytelności w druku i na ekranie) + elementy techniczne w <strong class="text-slate-900">Space Grotesk / JetBrains Mono</strong>.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-slate-200/80 p-8 sm:p-12 shadow-sm divide-y divide-slate-100">
+        <!-- Display 1 -->
+        <div class="pb-8">
+          <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2">
+            <span>DISPLAY H1 (Hero Title)</span>
+            <span>64px / 4rem · Leading 1.05 · Weight 800 · Tracking -0.03em</span>
+          </div>
+          <div class="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.05]">
+            Niezawodne systemy sygnalizacji pożaru.
+          </div>
+        </div>
+
+        <!-- Heading 2 -->
+        <div class="py-8">
+          <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2">
+            <span>HEADING H2 (Section Title)</span>
+            <span>36px / 2.25rem · Leading 1.15 · Weight 700 · Tracking -0.02em</span>
+          </div>
+          <div class="text-2xl sm:text-4xl font-bold tracking-tight text-slate-900">
+            Kompleksowa ochrona życia i mienia w obiektach wielkokubaturowych.
+          </div>
+        </div>
+
+        <!-- Heading 3 -->
+        <div class="py-8">
+          <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2">
+            <span>HEADING H3 (Card / Feature Title)</span>
+            <span>20px / 1.25rem · Leading 1.3 · Weight 600 · Tracking -0.01em</span>
+          </div>
+          <div class="text-xl font-semibold tracking-tight text-slate-900">
+            Dźwiękowe Systemy Ostrzegawcze (DSO) zgodne z normą EN 54-16
+          </div>
+        </div>
+
+        <!-- Body Regular -->
+        <div class="py-8">
+          <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2">
+            <span>BODY LARGE / LEAD PARAGRAPH</span>
+            <span>18px / 1.125rem · Leading 1.6 · Weight 400</span>
+          </div>
+          <p class="text-lg text-slate-600 leading-relaxed max-w-3xl">
+            Od ponad dwóch dekad projektujemy i utrzymujemy certyfikowaną infrastrukturę teletechniczną. Zapewniamy precyzyjne dopasowanie scenariuszy pożarowych do specyfiki obiektu handlowego, biurowego i przemysłowego.
+          </p>
+        </div>
+
+        <!-- Eyebrow Tag -->
+        <div class="pt-8">
+          <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-3">
+            <span>EYEBROW BADGE / METADATA CHIP</span>
+            <span>11px / 0.6875rem · Weight 600 · Tracking +0.2em (Uppercase)</span>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-[0.2em] bg-red-50 text-red-700 border border-red-200">
+              Systemy Sygnalizacji Pożaru
+            </span>
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-[0.2em] bg-slate-100 text-slate-700 border border-slate-200">
+              Norma PN-EN 54
+            </span>
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-[0.2em] bg-blue-50 text-blue-700 border border-blue-200">
+              Monitoring Wizyjny 4K
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: SIATKA, ODSTĘPY I SPACING -->
+    <section id="spacings" class="py-16 px-6 max-w-7xl mx-auto border-t border-slate-200/80">
+      <div class="mb-10">
+        <span class="text-xs font-mono font-semibold uppercase text-slate-400 tracking-wider">04. Geometria & Odstępy</span>
+        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 mt-1">Siatka 8-Point i Rytm Przestrzeni</h2>
+        <p class="text-slate-600 text-sm mt-1">Konsekwentna skala przestrzenna eliminująca wrażenie ciasnoty.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Spacing Scale -->
+        <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-slate-700 mb-6">Skala Paddingów i Sekcji</h3>
+          <div class="space-y-4">
+            <div class="flex items-center gap-4">
+              <span class="w-24 text-xs font-mono text-slate-500">py-24 (96px)</span>
+              <div class="flex-1 h-6 bg-red-100 rounded border border-red-200 flex items-center px-2">
+                <span class="text-[10px] font-semibold text-red-800">Standardowy odstęp sekcji</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <span class="w-24 text-xs font-mono text-slate-500">py-32 (128px)</span>
+              <div class="flex-1 h-8 bg-red-100 rounded border border-red-200 flex items-center px-2">
+                <span class="text-[10px] font-semibold text-red-800">Hero Section / Kluczowe podziały</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <span class="w-24 text-xs font-mono text-slate-500">p-8 (32px)</span>
+              <div class="flex-1 h-5 bg-slate-100 rounded border border-slate-200 flex items-center px-2">
+                <span class="text-[10px] font-semibold text-slate-700">Wewnętrzny padding kart (Desktop)</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <span class="w-24 text-xs font-mono text-slate-500">p-6 (24px)</span>
+              <div class="flex-1 h-4 bg-slate-100 rounded border border-slate-200 flex items-center px-2">
+                <span class="text-[10px] font-semibold text-slate-700">Padding kart (Mobile)</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <span class="w-24 text-xs font-mono text-slate-500">gap-6 / gap-8</span>
+              <div class="flex-1 h-4 bg-slate-100 rounded border border-slate-200 flex items-center px-2">
+                <span class="text-[10px] font-semibold text-slate-700">Odstępy w siatkach Bento</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Radius Hierarchy -->
+        <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-slate-700 mb-6">Zaokrąglenia (Radius Tokeny)</h3>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="p-4 rounded-full border border-slate-300 bg-slate-50 text-center">
+              <p class="text-xs font-bold text-slate-900">rounded-full</p>
+              <p class="text-[10px] text-slate-500">Pills, Buttons, Badges</p>
+            </div>
+            <div class="p-4 rounded-3xl border border-slate-300 bg-slate-50 text-center">
+              <p class="text-xs font-bold text-slate-900">rounded-3xl (24px)</p>
+              <p class="text-[10px] text-slate-500">Outer Shell kart</p>
+            </div>
+            <div class="p-4 rounded-2xl border border-slate-300 bg-slate-50 text-center">
+              <p class="text-xs font-bold text-slate-900">rounded-2xl (16px)</p>
+              <p class="text-[10px] text-slate-500">Karty, Inner Core</p>
+            </div>
+            <div class="p-4 rounded-xl border border-slate-300 bg-slate-50 text-center">
+              <p class="text-xs font-bold text-slate-900">rounded-xl (12px)</p>
+              <p class="text-[10px] text-slate-500">Pola formularza, inputy</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: ARCHITEKTURA HARDWARE & DOUBLE BEZEL -->
+    <section id="hardware-ui" class="py-16 px-6 max-w-7xl mx-auto border-t border-slate-200/80">
+      <div class="mb-10">
+        <span class="text-xs font-mono font-semibold uppercase text-slate-400 tracking-wider">05. Komponenty Fizyczne</span>
+        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 mt-1">Architektura "Double-Bezel" (Doppelrand)</h2>
+        <p class="text-slate-600 text-sm mt-1">Karty zaprojektowane jak precyzyjny sprzęt inżynieryjny z podwójnym rantem.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+        <!-- Live Demonstration Card -->
+        <div class="double-bezel-outer">
+          <div class="double-bezel-inner p-8">
+            <div class="flex items-center justify-between mb-6">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 ring-4 ring-emerald-100 animate-pulse"></span>
+                <span class="text-xs font-semibold text-slate-600 uppercase tracking-wider font-mono">Stan: Aktywny</span>
+              </div>
+              <span class="text-xs font-mono text-slate-400 bg-slate-100 px-2 py-0.5 rounded">ID: SSP-740</span>
+            </div>
+
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Centrala Pożarowa i Czujniki Optyczne</h3>
+            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+              Przykład wyrenderowania karty usługi z wykorzystaniem zasady podwójnej ramki (Double-Bezel). Cień wewnętrzny i zewnętrzny obrys nadają głębię niedostępną dla standardowych szablonów.
+            </p>
+
+            <div class="pt-6 border-t border-slate-100 flex items-center justify-between">
+              <span class="text-xs font-semibold text-slate-500">Certyfikacja CNBOP</span>
+              
+              <!-- Button-in-Button Pattern -->
+              <a href="#demo" class="group inline-flex items-center gap-3 pl-5 pr-2 py-2 rounded-full bg-slate-900 text-white text-xs font-semibold hover:bg-red-600 transition-colors duration-300">
+                <span>Sprawdź parametry</span>
+                <span class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center group-hover:scale-110 group-hover:bg-white/20 transition-all duration-300">
+                  <ArrowUpRight class="w-3.5 h-3.5 text-white" />
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Explanation Specs -->
+        <div class="space-y-4">
+          <div class="p-6 rounded-2xl bg-white border border-slate-200/80">
+            <h4 class="text-sm font-bold text-slate-900 mb-1">1. Outer Shell (Warstwa Zewnętrzna)</h4>
+            <p class="text-xs text-slate-600 leading-relaxed font-mono">
+              bg: rgba(15, 23, 42, 0.02) · border: 1px solid rgba(15, 23, 42, 0.05) · p-1.5 · rounded-3xl
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white border border-slate-200/80">
+            <h4 class="text-sm font-bold text-slate-900 mb-1">2. Inner Core (Rdzeń z Akcentem Światła)</h4>
+            <p class="text-xs text-slate-600 leading-relaxed font-mono">
+              bg: #FFFFFF · shadow: [inset 0 1px 0 #FFF, 0 2px 8px rgba(0,0,0,0.03)] · rounded-[calc(1.5rem-0.375rem)]
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white border border-slate-200/80">
+            <h4 class="text-sm font-bold text-slate-900 mb-1">3. Button-in-Button CTA</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Zamiast surowej strzałki obok tekstu, ikona posiada własne, zagnieżdżone koło reakcyjne (<code class="text-[11px] bg-slate-100 px-1 py-0.5 rounded font-mono">w-7 h-7 rounded-full bg-white/10</code>), które animuje się niezależnie podczas najechania kursorem.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom CTA Bar -->
+    <section class="py-12 px-6 max-w-7xl mx-auto">
+      <div class="p-8 sm:p-12 rounded-3xl bg-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl shadow-slate-950/10">
+        <div>
+          <h3 class="text-2xl font-bold tracking-tight mb-1">Przetestuj interaktywne komponenty na żywo</h3>
+          <p class="text-slate-400 text-sm">Otwórz laboratorium komponentów, przycisków, formularzy i kart usług.</p>
+        </div>
+        <a href="/styleguide" class="inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-red-600 hover:bg-red-500 text-white font-semibold text-sm transition-all shadow-lg shadow-red-600/20 active:scale-95">
+          <span>Otwórz Styleguide Lab</span>
+          <ArrowUpRight class="w-4 h-4" />
+        </a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
