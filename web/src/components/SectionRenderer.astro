@@ -70,7 +70,7 @@ const {sections = []} = Astro.props
         return (
           <section data-section={s._type}>
             <h2>{s.heading}</h2>
-            <ul>{s.logos?.map((l: any) => <li><img src={urlFor(l.logo).height(80).auto('format').url()} alt={l.name} /></li>)}</ul>
+            <ul>{s.logos?.map((l: any) => <li>{l.logo?.asset ? <img src={urlFor(l.logo).height(80).auto('format').url()} alt={l.name} /> : <span>{l.name}</span>}</li>)}</ul>
           </section>
         )
       case 'certificatesSection':

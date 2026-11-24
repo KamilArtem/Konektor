@@ -189,7 +189,7 @@ export type HomePageReference = {
 
 export type Link = {
   _type: "link";
-  label?: string;
+  label: string;
   type?: "internal" | "external";
   internal?: PageReference | ServiceReference | HomePageReference;
   href?: string;
@@ -245,8 +245,8 @@ export type ClientLogo = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  name?: string;
-  logo?: {
+  name: string;
+  logo: {
     asset?: SanityImageAssetReference;
     media?: unknown;
     hotspot?: SanityImageHotspot;
@@ -259,18 +259,18 @@ export type ClientLogo = {
 
 export type SanityImageCrop = {
   _type: "sanity.imageCrop";
-  top?: number;
-  bottom?: number;
-  left?: number;
-  right?: number;
+  top: number;
+  bottom: number;
+  left: number;
+  right: number;
 };
 
 export type SanityImageHotspot = {
   _type: "sanity.imageHotspot";
-  x?: number;
-  y?: number;
-  height?: number;
-  width?: number;
+  x: number;
+  y: number;
+  height: number;
+  width: number;
 };
 
 export type SanityFileAssetReference = {
@@ -286,7 +286,7 @@ export type Certificate = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  title?: string;
+  title: string;
   issuer?: string;
   issuedAt?: string;
   image?: {
@@ -310,9 +310,9 @@ export type Service = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  title?: string;
+  title: string;
   shortTitle?: string;
-  slug?: Slug;
+  slug: Slug;
   order?: number;
   icon?: {
     asset?: SanityImageAssetReference;
@@ -391,7 +391,7 @@ export type Service = {
 
 export type Slug = {
   _type: "slug";
-  current?: string;
+  current: string;
   source?: string;
 };
 
@@ -401,8 +401,8 @@ export type Page = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  title?: string;
-  slug?: Slug;
+  title: string;
+  slug: Slug;
   sections?: Array<
     | ({
         _key: string;
@@ -526,7 +526,7 @@ export type SanityReleaseMetadata = {
   _type: "sanity.releaseMetadata";
   title?: string;
   description?: string;
-  releaseType?: "asap" | "scheduled" | "undecided";
+  releaseType: "asap" | "scheduled" | "undecided";
   intendedPublishAt?: string;
   cardinality?: "many" | "one";
 };
@@ -581,9 +581,9 @@ export type SanityImagePalette = {
 
 export type SanityImageDimensions = {
   _type: "sanity.imageDimensions";
-  height?: number;
-  width?: number;
-  aspectRatio?: number;
+  height: number;
+  width: number;
+  aspectRatio: number;
 };
 
 export type SanityImageMetadata = {
@@ -609,14 +609,14 @@ export type SanityFileAsset = {
   title?: string;
   description?: string;
   altText?: string;
-  sha1hash?: string;
-  extension?: string;
-  mimeType?: string;
-  size?: number;
-  assetId?: string;
+  sha1hash: string;
+  extension: string;
+  mimeType: string;
+  size: number;
+  assetId: string;
   uploadId?: string;
-  path?: string;
-  url?: string;
+  path: string;
+  url: string;
   source?: SanityAssetSourceData;
 };
 
@@ -638,14 +638,14 @@ export type SanityImageAsset = {
   title?: string;
   description?: string;
   altText?: string;
-  sha1hash?: string;
-  extension?: string;
-  mimeType?: string;
-  size?: number;
-  assetId?: string;
+  sha1hash: string;
+  extension: string;
+  mimeType: string;
+  size: number;
+  assetId: string;
   uploadId?: string;
-  path?: string;
-  url?: string;
+  path: string;
+  url: string;
   metadata?: SanityImageMetadata;
   source?: SanityAssetSourceData;
 };
@@ -709,7 +709,7 @@ export type SETTINGS_QUERY_RESULT =
       _createdAt: string;
       _updatedAt: string;
       _rev: string;
-      title?: string;
+      title: string;
       issuer?: string;
       issuedAt?: string;
       image?: {
@@ -732,8 +732,8 @@ export type SETTINGS_QUERY_RESULT =
       _createdAt: string;
       _updatedAt: string;
       _rev: string;
-      name?: string;
-      logo?: {
+      name: string;
+      logo: {
         asset?: SanityImageAssetReference;
         media?: unknown;
         hotspot?: SanityImageHotspot;
@@ -796,8 +796,8 @@ export type SETTINGS_QUERY_RESULT =
       _createdAt: string;
       _updatedAt: string;
       _rev: string;
-      title?: string;
-      slug?: Slug;
+      title: string;
+      slug: Slug;
       sections?: Array<
         | ({
             _key: string;
@@ -849,14 +849,14 @@ export type SETTINGS_QUERY_RESULT =
       title?: string;
       description?: string;
       altText?: string;
-      sha1hash?: string;
-      extension?: string;
-      mimeType?: string;
-      size?: number;
-      assetId?: string;
+      sha1hash: string;
+      extension: string;
+      mimeType: string;
+      size: number;
+      assetId: string;
       uploadId?: string;
-      path?: string;
-      url?: string;
+      path: string;
+      url: string;
       source?: SanityAssetSourceData;
     }
   | {
@@ -870,14 +870,14 @@ export type SETTINGS_QUERY_RESULT =
       title?: string;
       description?: string;
       altText?: string;
-      sha1hash?: string;
-      extension?: string;
-      mimeType?: string;
-      size?: number;
-      assetId?: string;
+      sha1hash: string;
+      extension: string;
+      mimeType: string;
+      size: number;
+      assetId: string;
       uploadId?: string;
-      path?: string;
-      url?: string;
+      path: string;
+      url: string;
       metadata?: SanityImageMetadata;
       source?: SanityAssetSourceData;
     }
@@ -887,9 +887,9 @@ export type SETTINGS_QUERY_RESULT =
       _createdAt: string;
       _updatedAt: string;
       _rev: string;
-      title?: string;
+      title: string;
       shortTitle?: string;
-      slug?: Slug;
+      slug: Slug;
       order?: number;
       icon?: {
         asset?: SanityImageAssetReference;
@@ -1029,7 +1029,7 @@ export type SETTINGS_QUERY_RESULT =
 // Query: {  "services": *[_type == "service" && defined(slug.current)] | order(order asc){    title, shortTitle, "slug": slug.current, showInContactForm  }}
 export type NAVIGATION_QUERY_RESULT = {
   services: Array<{
-    title: string | null;
+    title: string;
     shortTitle: string | null;
     slug: string;
     showInContactForm: boolean | null;
@@ -1046,7 +1046,7 @@ export type HOME_QUERY_RESULT =
       _createdAt: string;
       _updatedAt: string;
       _rev: string;
-      title?: string;
+      title: string;
       issuer?: string;
       issuedAt?: string;
       image?: {
@@ -1070,8 +1070,8 @@ export type HOME_QUERY_RESULT =
       _createdAt: string;
       _updatedAt: string;
       _rev: string;
-      name?: string;
-      logo?: {
+      name: string;
+      logo: {
         asset?: SanityImageAssetReference;
         media?: unknown;
         hotspot?: SanityImageHotspot;
@@ -1099,7 +1099,7 @@ export type HOME_QUERY_RESULT =
             links: null;
             certificates: Array<{
               _id: string;
-              title: string | null;
+              title: string;
               issuer: string | null;
               issuedAt: string | null;
               image: {
@@ -1128,7 +1128,7 @@ export type HOME_QUERY_RESULT =
             links: Array<{
               _key: string;
               _type: "link";
-              label?: string;
+              label: string;
               type?: "external" | "internal";
               internal?: HomePageReference | PageReference | ServiceReference;
               href: string | "/" | null;
@@ -1170,7 +1170,7 @@ export type HOME_QUERY_RESULT =
             links: Array<{
               _key: string;
               _type: "link";
-              label?: string;
+              label: string;
               type?: "external" | "internal";
               internal?: HomePageReference | PageReference | ServiceReference;
               href: string | "/" | null;
@@ -1190,14 +1190,14 @@ export type HOME_QUERY_RESULT =
             links: null;
             logos: Array<{
               _id: string;
-              name: string | null;
+              name: string;
               logo: {
                 asset?: SanityImageAssetReference;
                 media?: unknown;
                 hotspot?: SanityImageHotspot;
                 crop?: SanityImageCrop;
                 _type: "image";
-              } | null;
+              };
               url: string | null;
             }>;
           }
@@ -1217,7 +1217,7 @@ export type HOME_QUERY_RESULT =
             links: null;
             services: Array<{
               _id: string;
-              title: string | null;
+              title: string;
               shortTitle: string | null;
               excerpt: string | null;
               icon: {
@@ -1263,7 +1263,7 @@ export type HOME_QUERY_RESULT =
             links: Array<{
               _key: string;
               _type: "link";
-              label?: string;
+              label: string;
               type?: "external" | "internal";
               internal?: HomePageReference | PageReference | ServiceReference;
               href: string | "/" | null;
@@ -1293,8 +1293,8 @@ export type HOME_QUERY_RESULT =
       _createdAt: string;
       _updatedAt: string;
       _rev: string;
-      title?: string;
-      slug?: Slug;
+      title: string;
+      slug: Slug;
       sections: Array<
         | {
             _key: string;
@@ -1305,7 +1305,7 @@ export type HOME_QUERY_RESULT =
             links: null;
             certificates: Array<{
               _id: string;
-              title: string | null;
+              title: string;
               issuer: string | null;
               issuedAt: string | null;
               image: {
@@ -1334,7 +1334,7 @@ export type HOME_QUERY_RESULT =
             links: Array<{
               _key: string;
               _type: "link";
-              label?: string;
+              label: string;
               type?: "external" | "internal";
               internal?: HomePageReference | PageReference | ServiceReference;
               href: string | "/" | null;
@@ -1376,7 +1376,7 @@ export type HOME_QUERY_RESULT =
             links: Array<{
               _key: string;
               _type: "link";
-              label?: string;
+              label: string;
               type?: "external" | "internal";
               internal?: HomePageReference | PageReference | ServiceReference;
               href: string | "/" | null;
@@ -1396,14 +1396,14 @@ export type HOME_QUERY_RESULT =
             links: null;
             logos: Array<{
               _id: string;
-              name: string | null;
+              name: string;
               logo: {
                 asset?: SanityImageAssetReference;
                 media?: unknown;
                 hotspot?: SanityImageHotspot;
                 crop?: SanityImageCrop;
                 _type: "image";
-              } | null;
+              };
               url: string | null;
             }>;
           }
@@ -1423,7 +1423,7 @@ export type HOME_QUERY_RESULT =
             links: null;
             services: Array<{
               _id: string;
-              title: string | null;
+              title: string;
               shortTitle: string | null;
               excerpt: string | null;
               icon: {
@@ -1469,7 +1469,7 @@ export type HOME_QUERY_RESULT =
             links: Array<{
               _key: string;
               _type: "link";
-              label?: string;
+              label: string;
               type?: "external" | "internal";
               internal?: HomePageReference | PageReference | ServiceReference;
               href: string | "/" | null;
@@ -1504,14 +1504,14 @@ export type HOME_QUERY_RESULT =
       title?: string;
       description?: string;
       altText?: string;
-      sha1hash?: string;
-      extension?: string;
-      mimeType?: string;
-      size?: number;
-      assetId?: string;
+      sha1hash: string;
+      extension: string;
+      mimeType: string;
+      size: number;
+      assetId: string;
       uploadId?: string;
-      path?: string;
-      url?: string;
+      path: string;
+      url: string;
       source?: SanityAssetSourceData;
       sections: null;
     }
@@ -1526,14 +1526,14 @@ export type HOME_QUERY_RESULT =
       title?: string;
       description?: string;
       altText?: string;
-      sha1hash?: string;
-      extension?: string;
-      mimeType?: string;
-      size?: number;
-      assetId?: string;
+      sha1hash: string;
+      extension: string;
+      mimeType: string;
+      size: number;
+      assetId: string;
       uploadId?: string;
-      path?: string;
-      url?: string;
+      path: string;
+      url: string;
       metadata?: SanityImageMetadata;
       source?: SanityAssetSourceData;
       sections: null;
@@ -1544,9 +1544,9 @@ export type HOME_QUERY_RESULT =
       _createdAt: string;
       _updatedAt: string;
       _rev: string;
-      title?: string;
+      title: string;
       shortTitle?: string;
-      slug?: Slug;
+      slug: Slug;
       order?: number;
       icon?: {
         asset?: SanityImageAssetReference;
@@ -1592,7 +1592,7 @@ export type HOME_QUERY_RESULT =
             links: null;
             certificates: Array<{
               _id: string;
-              title: string | null;
+              title: string;
               issuer: string | null;
               issuedAt: string | null;
               image: {
@@ -1621,7 +1621,7 @@ export type HOME_QUERY_RESULT =
             links: Array<{
               _key: string;
               _type: "link";
-              label?: string;
+              label: string;
               type?: "external" | "internal";
               internal?: HomePageReference | PageReference | ServiceReference;
               href: string | "/" | null;
@@ -1663,7 +1663,7 @@ export type HOME_QUERY_RESULT =
             links: Array<{
               _key: string;
               _type: "link";
-              label?: string;
+              label: string;
               type?: "external" | "internal";
               internal?: HomePageReference | PageReference | ServiceReference;
               href: string | "/" | null;
@@ -1683,14 +1683,14 @@ export type HOME_QUERY_RESULT =
             links: null;
             logos: Array<{
               _id: string;
-              name: string | null;
+              name: string;
               logo: {
                 asset?: SanityImageAssetReference;
                 media?: unknown;
                 hotspot?: SanityImageHotspot;
                 crop?: SanityImageCrop;
                 _type: "image";
-              } | null;
+              };
               url: string | null;
             }>;
           }
@@ -1710,7 +1710,7 @@ export type HOME_QUERY_RESULT =
             links: null;
             services: Array<{
               _id: string;
-              title: string | null;
+              title: string;
               shortTitle: string | null;
               excerpt: string | null;
               icon: {
@@ -1756,7 +1756,7 @@ export type HOME_QUERY_RESULT =
             links: Array<{
               _key: string;
               _type: "link";
-              label?: string;
+              label: string;
               type?: "external" | "internal";
               internal?: HomePageReference | PageReference | ServiceReference;
               href: string | "/" | null;
@@ -1855,8 +1855,8 @@ export type PAGE_QUERY_RESULT = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  title?: string;
-  slug?: Slug;
+  title: string;
+  slug: Slug;
   sections: Array<
     | {
         _key: string;
@@ -1867,7 +1867,7 @@ export type PAGE_QUERY_RESULT = {
         links: null;
         certificates: Array<{
           _id: string;
-          title: string | null;
+          title: string;
           issuer: string | null;
           issuedAt: string | null;
           image: {
@@ -1896,7 +1896,7 @@ export type PAGE_QUERY_RESULT = {
         links: Array<{
           _key: string;
           _type: "link";
-          label?: string;
+          label: string;
           type?: "external" | "internal";
           internal?: HomePageReference | PageReference | ServiceReference;
           href: string | "/" | null;
@@ -1938,7 +1938,7 @@ export type PAGE_QUERY_RESULT = {
         links: Array<{
           _key: string;
           _type: "link";
-          label?: string;
+          label: string;
           type?: "external" | "internal";
           internal?: HomePageReference | PageReference | ServiceReference;
           href: string | "/" | null;
@@ -1958,14 +1958,14 @@ export type PAGE_QUERY_RESULT = {
         links: null;
         logos: Array<{
           _id: string;
-          name: string | null;
+          name: string;
           logo: {
             asset?: SanityImageAssetReference;
             media?: unknown;
             hotspot?: SanityImageHotspot;
             crop?: SanityImageCrop;
             _type: "image";
-          } | null;
+          };
           url: string | null;
         }>;
       }
@@ -1985,7 +1985,7 @@ export type PAGE_QUERY_RESULT = {
         links: null;
         services: Array<{
           _id: string;
-          title: string | null;
+          title: string;
           shortTitle: string | null;
           excerpt: string | null;
           icon: {
@@ -2031,7 +2031,7 @@ export type PAGE_QUERY_RESULT = {
         links: Array<{
           _key: string;
           _type: "link";
-          label?: string;
+          label: string;
           type?: "external" | "internal";
           internal?: HomePageReference | PageReference | ServiceReference;
           href: string | "/" | null;
@@ -2070,9 +2070,9 @@ export type SERVICE_QUERY_RESULT = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  title?: string;
+  title: string;
   shortTitle?: string;
-  slug?: Slug;
+  slug: Slug;
   order?: number;
   icon?: {
     asset?: SanityImageAssetReference;
@@ -2118,7 +2118,7 @@ export type SERVICE_QUERY_RESULT = {
         links: null;
         certificates: Array<{
           _id: string;
-          title: string | null;
+          title: string;
           issuer: string | null;
           issuedAt: string | null;
           image: {
@@ -2147,7 +2147,7 @@ export type SERVICE_QUERY_RESULT = {
         links: Array<{
           _key: string;
           _type: "link";
-          label?: string;
+          label: string;
           type?: "external" | "internal";
           internal?: HomePageReference | PageReference | ServiceReference;
           href: string | "/" | null;
@@ -2189,7 +2189,7 @@ export type SERVICE_QUERY_RESULT = {
         links: Array<{
           _key: string;
           _type: "link";
-          label?: string;
+          label: string;
           type?: "external" | "internal";
           internal?: HomePageReference | PageReference | ServiceReference;
           href: string | "/" | null;
@@ -2209,14 +2209,14 @@ export type SERVICE_QUERY_RESULT = {
         links: null;
         logos: Array<{
           _id: string;
-          name: string | null;
+          name: string;
           logo: {
             asset?: SanityImageAssetReference;
             media?: unknown;
             hotspot?: SanityImageHotspot;
             crop?: SanityImageCrop;
             _type: "image";
-          } | null;
+          };
           url: string | null;
         }>;
       }
@@ -2236,7 +2236,7 @@ export type SERVICE_QUERY_RESULT = {
         links: null;
         services: Array<{
           _id: string;
-          title: string | null;
+          title: string;
           shortTitle: string | null;
           excerpt: string | null;
           icon: {
@@ -2282,7 +2282,7 @@ export type SERVICE_QUERY_RESULT = {
         links: Array<{
           _key: string;
           _type: "link";
-          label?: string;
+          label: string;
           type?: "external" | "internal";
           internal?: HomePageReference | PageReference | ServiceReference;
           href: string | "/" | null;
