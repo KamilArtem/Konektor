@@ -31,7 +31,7 @@
     font-weight: 400; /* Regular body text strictly 400 */
     background-color: var(--color-surface-bg);
     color: var(--color-text-primary);
-    overflow-x: hidden;
+    overflow-x: clip;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     letter-spacing: -0.01em;
@@ -52,6 +52,17 @@
 /* Precision Spring Physics */
 .ease-spring {
   transition-timing-function: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* Global Layout System (Client-first / Webflow parity) */
+.padding-global {
+  padding-inline: 5vw;
+}
+
+.container-large {
+  width: 100%;
+  max-width: 90rem;
+  margin-inline: auto;
 }
 
 /* Double-Bezel Hardware Archetype (Light Edition) */

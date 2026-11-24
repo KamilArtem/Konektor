@@ -20,9 +20,12 @@ const sectionsProjection = /* groq */ `
     _type,
     _key,
     links[]{ ${linkProjection} },
+    _type == "heroSection" => {
+      "videoUrl": video.asset->url
+    },
     _type == "servicesSection" => {
       "services": *[_type == "service" && defined(slug.current)] | order(order asc){
-        _id, title, shortTitle, excerpt, icon, "slug": slug.current
+        _id, title, shortTitle, excerpt, icon, "image": hero.image, "slug": slug.current
       }
     },
     _type == "logosSection" => {

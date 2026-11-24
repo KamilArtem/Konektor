@@ -7,6 +7,9 @@
  */
 import PortableText from '@/components/PortableText.astro'
 import ContactForm from '@/components/ContactForm.astro'
+import HeroSection from '@/components/sections/HeroSection.astro'
+import LogosSection from '@/components/sections/LogosSection.astro'
+import ServicesSection from '@/components/sections/ServicesSection.astro'
 import {urlFor} from '@/sanity/image'
 
 interface Props {
@@ -20,15 +23,7 @@ const {sections = []} = Astro.props
   sections?.map((s) => {
     switch (s._type) {
       case 'heroSection':
-        return (
-          <section data-section={s._type}>
-            {s.eyebrow && <p>{s.eyebrow}</p>}
-            <h1>{s.heading}</h1>
-            {s.text && <p>{s.text}</p>}
-            {s.links?.map((l: any) => <a href={l.href}>{l.label}</a>)}
-            {s.image?.asset && <img src={urlFor(s.image).width(1600).auto('format').url()} alt="" />}
-          </section>
-        )
+        return <HeroSection {...s} />
       case 'featuresSection':
         return (
           <section data-section={s._type}>
@@ -46,12 +41,7 @@ const {sections = []} = Astro.props
           </section>
         )
       case 'servicesSection':
-        return (
-          <section data-section={s._type}>
-            <h2>{s.heading}</h2>
-            <ul>{s.services?.map((svc: any) => <li><a href={`/serwisy/${svc.slug}`}>{svc.title}</a><p>{svc.excerpt}</p></li>)}</ul>
-          </section>
-        )
+        return <ServicesSection {...s} />
       case 'statsSection':
         return (
           <section data-section={s._type}>
@@ -67,12 +57,7 @@ const {sections = []} = Astro.props
           </section>
         )
       case 'logosSection':
-        return (
-          <section data-section={s._type}>
-            <h2>{s.heading}</h2>
-            <ul>{s.logos?.map((l: any) => <li>{l.logo?.asset ? <img src={urlFor(l.logo).height(80).auto('format').url()} alt={l.name} /> : <span>{l.name}</span>}</li>)}</ul>
-          </section>
-        )
+        return <LogosSection {...s} />
       case 'certificatesSection':
         return (
           <section data-section={s._type}>

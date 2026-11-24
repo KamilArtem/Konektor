@@ -1,0 +1,127 @@
+---
+import Button from '@/components/ui/Button.astro'
+
+interface ServiceLink {
+  title: string
+  shortTitle?: string
+  slug: string
+}
+
+interface Props {
+  siteName: string
+  services: ServiceLink[]
+}
+
+const {siteName, services} = Astro.props
+---
+
+<header class="fixed top-6 inset-x-0 z-50 padding-global pointer-events-none">
+  <div class="w-full flex items-center justify-between gap-4">
+    <!-- Left Floating Glass Pill -->
+    <div class="pointer-events-auto flex items-center gap-6 px-4 py-2.5 rounded-xl bg-[#141518]/80 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/25 text-white">
+      <a href="/" class="flex items-center gap-2.5 group shrink-0">
+        <span class="w-6 h-6 rounded-md bg-[#D92D20] flex items-center justify-center text-white text-xs font-medium tracking-tight group-hover:scale-105 transition-transform duration-300 ease-spring">
+          K
+        </span>
+        <span class="text-[15px] font-medium tracking-tight text-white">{siteName}</span>
+      </a>
+
+      <nav aria-label="Główna" class="hidden md:flex items-center gap-6 text-base text-white/75">
+        <!-- Oferta Dropdown -->
+        <div class="relative group">
+          <button
+            type="button"
+            class="flex items-center gap-1 py-0.5 hover:text-white transition-colors cursor-pointer"
+            aria-expanded="false"
+          >
+            <span>Oferta</span>
+            <svg class="w-3.5 h-3.5 opacity-60 group-hover:rotate-180 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </button>
+
+          <div class="absolute left-0 top-full pt-3 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 ease-spring">
+            <div class="w-[23rem] p-2 rounded-xl bg-[#141518]/95 backdrop-blur-2xl border border-white/10 shadow-2xl shadow-black/40">
+              {
+                services.map((s) => (
+                  <a
+                    href={`/serwisy/${s.slug}`}
+                    class="flex items-center justify-between gap-3 px-3 py-2 rounded-lg text-base text-white/80 hover:text-white hover:bg-white/10 transition-colors"
+                  >
+                    <span>{s.title}</span>
+                    {s.shortTitle && (
+                      <span class="text-[10px] uppercase tracking-wider text-white/40">{s.shortTitle}</span>
+                    )}
+                  </a>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+
+        <a href="/o-firmie" class="hover:text-white transition-colors">O firmie</a>
+        <a href="/certyfikaty" class="hover:text-white transition-colors">Certyfikaty</a>
+        <a href="/kontakt" class="hover:text-white transition-colors">Kontakt</a>
+      </nav>
+
+      <!-- Mobile Menu Toggle -->
+      <button
+        type="button"
+        data-mobile-menu-toggle
+        aria-label="Otwórz menu"
+        class="md:hidden ml-auto p-1 text-white/80 hover:text-white cursor-pointer"
+      >
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+          <path d="M4 7h16M4 17h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Right Kinetic Pill CTA Button -->
+    <Button
+      href="/kontakt"
+      variant="primary-light"
+      size="sm"
+      class="pointer-events-auto hidden sm:inline-flex"
+    >
+      Zapytaj o ofertę
+    </Button>
+  </div>
+
+  <!-- Mobile Dropdown Drawer -->
+  <div
+    data-mobile-menu
+    class="pointer-events-auto hidden md:hidden mt-2 p-4 rounded-xl bg-[#141518]/95 backdrop-blur-2xl border border-white/10 shadow-2xl text-white space-y-3"
+  >
+    <div class="space-y-1">
+      <p class="text-[11px] uppercase tracking-[0.16em] text-white/40 px-2">Oferta</p>
+      {
+        services.map((s) => (
+          <a href={`/serwisy/${s.slug}`} class="block px-2 py-1.5 rounded-lg text-sm text-white/85 hover:bg-white/10">
+            {s.title}
+          </a>
+        ))
+      }
+    </div>
+    <div class="pt-2 border-t border-white/10 flex flex-col gap-1">
+      <a href="/o-firmie" class="px-2 py-1.5 rounded-lg text-sm text-white/85 hover:bg-white/10">O firmie</a>
+      <a href="/certyfikaty" class="px-2 py-1.5 rounded-lg text-sm text-white/85 hover:bg-white/10">Certyfikaty</a>
+      <a href="/kontakt" class="px-2 py-1.5 rounded-lg text-sm text-white/85 hover:bg-white/10">Kontakt</a>
+    </div>
+    <a
+      href="/kontakt"
+      class="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg bg-white text-slate-900 text-sm font-medium"
+    >
+      <span class="w-2 h-2 rounded-[2px] bg-[#D92D20]"></span>
+      <span>Zapytaj o ofertę</span>
+    </a>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector('[data-mobile-menu-toggle]')
+  const menu = document.querySelector('[data-mobile-menu]')
+  toggle?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden')
+  })
+</script>

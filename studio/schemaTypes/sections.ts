@@ -25,7 +25,8 @@ export const heroSection = defineType({
     heading,
     text,
     links,
-    defineField({name: 'image', title: 'Obraz', type: 'image', options: {hotspot: true}}),
+    defineField({name: 'image', title: 'Obraz / Poster wideo', type: 'image', options: {hotspot: true}}),
+    defineField({name: 'video', title: 'Wideo w tle (MP4 / WebM)', type: 'file', options: {accept: 'video/mp4,video/webm'}}),
   ],
   preview: preview('Hero'),
 })
@@ -149,10 +150,10 @@ export const timelineSection = defineType({
 
 export const logosSection = defineType({
   name: 'logosSection',
-  title: 'Zaufali nam',
+  title: 'Zaufali nam (tekst + logotypy)',
   type: 'object',
-  description: 'Wyświetla dokumenty „Logo klienta”',
-  fields: [heading],
+  description: 'Wyświetla dokumenty „Logo klienta” oraz tekst wprowadzający',
+  fields: [eyebrow, text, heading],
   preview: preview('Zaufali nam'),
 })
 

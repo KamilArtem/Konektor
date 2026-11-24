@@ -174,42 +174,26 @@
         "_key": "hero1",
         "_type": "heroSection",
         "eyebrow": "Bezpieczeństwo techniczne",
-        "heading": "Projektujemy, instalujemy i serwisujemy nowoczesne systemy zabezpieczeń",
+        "heading": "Projektujemy i serwisujemy\nsystemy zabezpieczeń",
         "text": "Od ponad 20 lat dostarczamy kompleksowe rozwiązania SSP, DSO, SSWiN, SKD i CCTV dla firm, instytucji i przemysłu.",
         "links": [
           { "_key": "l1", "type": "internal", "label": "Zapytaj o ofertę", "href": "/kontakt" },
-          { "_key": "l2", "type": "internal", "label": "Poznaj nasze usługi", "href": "#Services" }
-        ]
-      },
-      {
-        "_key": "services1",
-        "_type": "servicesSection",
-        "eyebrow": "Nasza oferta",
-        "heading": "Kompleksowe systemy bezpieczeństwa",
-        "text": "Wybierz obszar, w którym potrzebujesz profesjonalnego wsparcia inżynieryjnego."
-      },
-      {
-        "_key": "stats1",
-        "_type": "statsSection",
-        "heading": "Zaufanie, które liczy się w liczbach",
-        "text": "Nasze doświadczenie mierzymy satysfakcją klientów i bezawaryjnością wdrożonych instalacji.",
-        "items": [
-          { "_key": "s1", "value": 20, "prefix": "+", "label": "Lat doświadczenia" },
-          { "_key": "s2", "value": 100, "suffix": "%", "label": "Zgodności z normami" },
-          { "_key": "s3", "value": 80, "suffix": "%", "label": "Klientów powracających" }
+          { "_key": "l2", "type": "internal", "label": "Umów rozmowę", "href": "tel:+48781262626" }
         ]
       },
       {
         "_key": "logos1",
         "_type": "logosSection",
+        "eyebrow": "Doświadczenie i precyzja",
+        "text": "Od ponad 20 lat wspieramy firmy i instytucje w budowaniu bezpiecznej infrastruktury technicznej. Od analizy potrzeb, przez projekt i certyfikowaną instalację, aż po stały serwis – dostarczamy rozwiązania gwarantujące pełną ochronę i zgodność z normami.",
         "heading": "Zaufali nam"
       },
       {
-        "_key": "contact1",
-        "_type": "contactSection",
-        "eyebrow": "Kontakt",
-        "heading": "Porozmawiajmy o zabezpieczeniu Twojego obiektu",
-        "text": "Wypełnij formularz lub zadzwoń bezpośrednio do naszego biura obsługi klienta."
+        "_key": "services1",
+        "_type": "servicesSection",
+        "eyebrow": "Zakres usług",
+        "heading": "Systemy, które chronią ludzi i infrastrukturę",
+        "text": "Każdą realizację prowadzimy w pełnym cyklu inżynieryjnym: od koncepcji i projektu wykonawczego, przez montaż, po certyfikowane przeglądy i serwis 24/7."
       }
     ],
     "seo": {

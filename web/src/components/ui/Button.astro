@@ -1,0 +1,67 @@
+---
+import {ArrowUpRight, PhoneCall} from 'lucide-astro'
+
+interface Props {
+  href: string
+  variant?: 'primary-light' | 'primary-crimson' | 'glass-dark'
+  size?: 'sm' | 'md'
+  icon?: 'arrow' | 'phone'
+  class?: string
+}
+
+const {
+  href,
+  variant = 'primary-light',
+  size = 'md',
+  icon = 'arrow',
+  class: className = '',
+} = Astro.props
+
+const baseClasses =
+  'group relative inline-flex items-center justify-between gap-3 rounded-full font-semibold tracking-[-0.01em] transition-all duration-500 ease-spring active:scale-[0.97] hover:-translate-y-0.5 select-none overflow-hidden'
+
+const sizeClasses =
+  size === 'sm' ? 'pl-4 pr-1.5 py-1.5 text-base' : 'pl-5 pr-2 py-2 text-base'
+
+const variantClasses = {
+  'primary-light':
+    'bg-white hover:bg-slate-50 text-slate-900 shadow-[0_8px_24px_-6px_rgba(0,0,0,0.28),inset_0_1px_0_rgba(255,255,255,1)] hover:shadow-[0_14px_32px_-6px_rgba(0,0,0,0.38)]',
+  'primary-crimson':
+    'bg-[#D92D20] hover:bg-[#B42318] text-white shadow-[0_8px_24px_-6px_rgba(217,45,32,0.45),inset_0_1px_0_rgba(255,255,255,0.2)]',
+  'glass-dark':
+    'bg-[#141518]/80 hover:bg-[#1E2025]/95 backdrop-blur-xl border border-white/15 hover:border-white/30 text-white shadow-[0_8px_24px_-6px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.08)]',
+}[variant]
+
+const circleSize = size === 'sm' ? 'w-7 h-7' : 'w-8 h-8'
+
+const circleClasses = {
+  'primary-light':
+    'bg-slate-900/5 text-slate-800 group-hover:bg-[#D92D20] group-hover:text-white',
+  'primary-crimson':
+    'bg-white/15 text-white group-hover:bg-white group-hover:text-[#D92D20]',
+  'glass-dark':
+    'bg-white/10 text-white/90 group-hover:bg-white group-hover:text-slate-900',
+}[variant]
+---
+
+<a href={href} class:list={[baseClasses, sizeClasses, variantClasses, className]}>
+  <span class="text-base font-semibold"><slot /></span>
+
+  <!-- Nested Button-in-Button Kinetic Icon Capsule -->
+  <span
+    class:list={[
+      'relative rounded-full flex items-center justify-center shrink-0 overflow-hidden transition-all duration-500 ease-spring group-hover:scale-105',
+      circleSize,
+      circleClasses,
+    ]}
+  >
+    {icon === 'arrow' ? (
+      <>
+        <ArrowUpRight class="w-4 h-4 transition-transform duration-500 ease-spring group-hover:translate-x-5 group-hover:-translate-y-5" />
+        <ArrowUpRight class="w-4 h-4 absolute -translate-x-5 translate-y-5 transition-transform duration-500 ease-spring group-hover:translate-x-0 group-hover:translate-y-0" />
+      </>
+    ) : (
+      <PhoneCall class="w-3.5 h-3.5 transition-transform duration-300 ease-spring group-hover:rotate-12" />
+    )}
+  </span>
+</a>

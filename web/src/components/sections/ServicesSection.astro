@@ -1,0 +1,171 @@
+---
+import {urlFor} from '@/sanity/image'
+import {Flame, Volume2, ShieldAlert, Lock, Camera, ShieldCheck, ArrowUpRight} from 'lucide-astro'
+
+interface ServiceItem {
+  _id: string
+  title: string
+  shortTitle?: string
+  excerpt?: string
+  slug: string
+  image?: any
+}
+
+interface Props {
+  eyebrow?: string
+  heading?: string
+  text?: string
+  services?: ServiceItem[]
+}
+
+const {
+  eyebrow = 'Zakres usług',
+  heading = 'Systemy, które chronią ludzi i infrastrukturę',
+  text = 'Każdą realizację prowadzimy w pełnym cyklu inżynieryjnym: od koncepcji i projektu wykonawczego, przez montaż, po certyfikowane przeglądy i serwis 24/7.',
+  services = [],
+} = Astro.props
+
+const localImages: Record<string, string> = {
+  'systemy-sygnalizacji-pozaru': '/images/services/ssp.jpg',
+  'dzwiekowe-systemy-ostrzegawcze': '/images/services/dso.jpg',
+  'systemy-sygnalizacji-wlamania-i-napadu': '/images/services/sswin.jpg',
+  'systemy-kontroli-dostepu': '/images/services/skd.jpg',
+  'systemy-monitoringu-wizyjnego': '/images/services/cctv.jpg',
+  'gasnice-i-hydranty': '/images/services/gasnice.jpg',
+}
+
+function getIcon(slug: string) {
+  switch (slug) {
+    case 'systemy-sygnalizacji-pozaru':
+      return Flame
+    case 'dzwiekowe-systemy-ostrzegawcze':
+      return Volume2
+    case 'systemy-sygnalizacji-wlamania-i-napadu':
+      return ShieldAlert
+    case 'systemy-kontroli-dostepu':
+      return Lock
+    case 'systemy-monitoringu-wizyjnego':
+      return Camera
+    default:
+      return ShieldCheck
+  }
+}
+---
+
+<section
+  id="Services"
+  data-section="servicesSection"
+  class="bg-[#F8F9FA] text-slate-900 py-24 sm:py-32 padding-global border-t border-slate-200/80"
+>
+  <div class="w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      <!-- Left Sticky Column -->
+      <div class="lg:col-span-5 lg:sticky lg:top-28 lg:min-h-[calc(100dvh-9rem)] flex flex-col justify-between gap-12">
+        <div>
+          <div class="inline-flex items-center gap-3 text-base font-medium tracking-[-0.01em] text-slate-500 mb-5">
+            <span aria-hidden="true" class="w-4 h-px bg-[#D92D20]"></span>
+            <span>{eyebrow}</span>
+          </div>
+
+          <h2 class="text-4xl sm:text-5xl lg:text-[3.25rem] font-medium leading-[1.08] tracking-[-0.03em] text-slate-900 mb-6">
+            {heading}
+          </h2>
+
+          {
+            text && (
+              <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-md">
+                {text}
+              </p>
+            )
+          }
+        </div>
+
+        <!-- Bottom Index List -->
+        {
+          services.length > 0 && (
+            <nav aria-label="Lista usług" class="hidden lg:block border-t border-slate-200/90">
+              {services.map((svc, idx) => (
+                <a
+                  href={`#service-${svc.slug}`}
+                  class="group flex items-center justify-between py-3.5 border-b border-slate-200/90 text-sm font-medium tracking-[-0.01em] text-slate-500 hover:text-slate-900 transition-colors"
+                >
+                  <span class="flex items-center gap-3">
+                    <span class="text-slate-400 font-medium">0{idx + 1}</span>
+                    <span>{svc.title}</span>
+                  </span>
+                  <span class="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 text-[#D92D20]">
+                    →
+                  </span>
+                </a>
+              ))}
+            </nav>
+          )
+        }
+      </div>
+
+      <!-- Right Scrollable Photographic Service Cards Column -->
+      <div class="lg:col-span-7 flex flex-col gap-6">
+        {
+          services.map((svc) => {
+            const Icon = getIcon(svc.slug)
+            const imgSrc = svc.image?.asset
+              ? urlFor(svc.image).width(1600).auto('format').quality(85).url()
+              : localImages[svc.slug] ?? '/images/services/ssp.jpg'
+
+            return (
+              <a
+                id={`service-${svc.slug}`}
+                href={`/serwisy/${svc.slug}`}
+                class="group relative block rounded-2xl overflow-hidden bg-white border border-slate-200/90 shadow-[0_4px_24px_-6px_rgba(15,23,42,0.08)] aspect-[16/11] sm:aspect-[16/10] scroll-mt-28 transition-all duration-500 ease-spring hover:-translate-y-0.5 hover:shadow-[0_18px_44px_-10px_rgba(15,23,42,0.16)]"
+              >
+                <!-- Architectural Photograph -->
+                <img
+                  src={imgSrc}
+                  alt={svc.title}
+                  loading="lazy"
+                  class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-spring group-hover:scale-[1.03]"
+                />
+
+                <!-- Scrim for crisp typography legibility -->
+                <div
+                  aria-hidden="true"
+                  class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-slate-950/10 transition-opacity duration-500"
+                />
+
+                <!-- Card Overlay Content -->
+                <div class="relative z-10 h-full p-6 sm:p-8 flex flex-col justify-between">
+                  <!-- Top Row: Light Glass Icon Badge + Short Title Pill -->
+                  <div class="flex items-start justify-between gap-4">
+                    <span class="w-10 h-10 rounded-xl bg-white/95 backdrop-blur-md border border-white/80 text-[#D92D20] flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform duration-300 ease-spring">
+                      <Icon class="w-5 h-5" />
+                    </span>
+
+                    <span class="inline-flex items-center gap-2 pl-3.5 pr-1.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-white/80 text-slate-900 text-[11px] uppercase tracking-[0.14em] font-medium shadow-sm">
+                      <span>{svc.shortTitle || 'Usługa'}</span>
+                      <span class="relative w-6 h-6 rounded-full bg-slate-900/5 group-hover:bg-[#D92D20] text-slate-600 group-hover:text-white flex items-center justify-center overflow-hidden transition-colors duration-300">
+                        <ArrowUpRight class="w-3.5 h-3.5 transition-transform duration-500 ease-spring group-hover:translate-x-4 group-hover:-translate-y-4" />
+                        <ArrowUpRight class="w-3.5 h-3.5 absolute -translate-x-4 translate-y-4 transition-transform duration-500 ease-spring group-hover:translate-x-0 group-hover:translate-y-0" />
+                      </span>
+                    </span>
+                  </div>
+
+                  <!-- Bottom Row: Title & Excerpt -->
+                  <div class="max-w-xl">
+                    <h3 class="text-2xl sm:text-[1.75rem] font-medium tracking-tight text-white mb-2">
+                      {svc.title}
+                    </h3>
+                    {svc.excerpt && (
+                      <p class="text-sm sm:text-base text-white/85 leading-relaxed">
+                        {svc.excerpt}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </a>
+            )
+          })
+        }
+      </div>
+    </div>
+  </div>
+</section>

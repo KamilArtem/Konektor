@@ -1,5 +1,6 @@
 ---
 import '@/styles/global.css'
+import Navbar from '@/components/Navbar.astro'
 import {sanityFetch} from '@/sanity/client'
 import {SETTINGS_QUERY, NAVIGATION_QUERY} from '@/sanity/queries'
 import {urlFor} from '@/sanity/image'
@@ -14,9 +15,10 @@ interface Seo {
 interface Props {
   title?: string
   seo?: Seo | null
+  hideGlobalNav?: boolean
 }
 
-const {title, seo} = Astro.props
+const {title, seo, hideGlobalNav = false} = Astro.props
 
 const [settings, nav] = await Promise.all([
   sanityFetch<any>(SETTINGS_QUERY, {}, null),
@@ -58,40 +60,28 @@ const email = settings?.email ?? 'bok@konektor.com.pl'
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <!-- UI: header/navigation to be designed -->
-    <header>
-      <a href="/">{siteName}</a>
-      <nav aria-label="Główna">
-        <ul>
-          <li>
-            <span>Oferta</span>
-            <ul>
-              {nav.services.map((s) => <li><a href={`/serwisy/${s.slug}`}>{s.title}</a></li>)}
-            </ul>
-          </li>
-          <li><a href="/o-firmie">O firmie</a></li>
-          <li><a href="/certyfikaty">Certyfikaty</a></li>
-          <li><a href="/kontakt">Kontakt</a></li>
-        </ul>
-      </nav>
-    </header>
+    {!hideGlobalNav && <Navbar siteName={siteName} services={nav.services} />}
 
     <main>
       <slot />
     </main>
 
     <!-- UI: footer to be designed -->
-    <footer>
-      {settings?.footerTagline && <p>{settings.footerTagline}</p>}
-      <p><a href={`tel:${phone.replace(/\s/g, '')}`}>{phone}</a> · <a href={`mailto:${email}`}>{email}</a></p>
-      {
-        settings?.address && (
-          <address>
-            {settings.address.street}, {settings.address.postalCode} {settings.address.city}
-          </address>
-        )
-      }
-      <p>© {new Date().getFullYear()} {settings?.legalName ?? siteName}</p>
+    <footer class="border-t border-slate-200 bg-white text-slate-600 py-12 padding-global">
+      <div class="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-sm">
+        <div>
+          {settings?.footerTagline && <p class="text-slate-900 font-medium mb-1">{settings.footerTagline}</p>}
+          <p><a href={`tel:${phone.replace(/\s/g, '')}`} class="hover:text-slate-900">{phone}</a> · <a href={`mailto:${email}`} class="hover:text-slate-900">{email}</a></p>
+          {
+            settings?.address && (
+              <address class="not-italic text-slate-500 mt-1">
+                {settings.address.street}, {settings.address.postalCode} {settings.address.city}
+              </address>
+            )
+          }
+        </div>
+        <p class="text-slate-400">© {new Date().getFullYear()} {settings?.legalName ?? siteName}</p>
+      </div>
     </footer>
   </body>
 </html>

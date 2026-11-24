@@ -1,0 +1,161 @@
+---
+import {urlFor} from '@/sanity/image'
+import Button from '@/components/ui/Button.astro'
+
+interface LinkItem {
+  label: string
+  href?: string
+}
+
+interface Props {
+  eyebrow?: string
+  heading?: string
+  text?: string
+  links?: LinkItem[]
+  image?: any
+  videoUrl?: string
+}
+
+const {heading, links = [], image, videoUrl} = Astro.props
+
+const bgUrl = image?.asset
+  ? urlFor(image).width(2200).auto('format').quality(85).url()
+  : '/images/services/ssp.jpg'
+
+const videoSrc = videoUrl || '/videos/hero.mp4'
+
+// Split heading into 2 balanced lines for the crisp white + muted silver contrast
+const rawHeading = heading || 'Systemy bezpieczeństwa,\nktóre działają bez kompromisów'
+let line1 = rawHeading
+let line2 = ''
+
+if (rawHeading.includes('\n')) {
+  const parts = rawHeading.split('\n')
+  line1 = parts[0]
+  line2 = parts.slice(1).join(' ')
+} else {
+  const words = rawHeading.trim().split(/\s+/)
+  if (words.length > 3) {
+    const mid = Math.ceil(words.length / 2)
+    line1 = words.slice(0, mid).join(' ')
+    line2 = words.slice(mid).join(' ')
+  }
+}
+
+const primaryLink = links[0] ?? {label: 'Zapytaj o ofertę', href: '/kontakt'}
+const secondaryLink = links[1] ?? {label: 'Umów rozmowę', href: 'tel:+48781262626'}
+---
+
+<section
+  data-section="heroSection"
+  class="relative min-h-[100dvh] w-full overflow-hidden flex flex-col justify-end bg-[#0B0C0E] text-white"
+>
+  <!-- Full-bleed background video (with poster fallback) -->
+  <video
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+    poster={bgUrl}
+    aria-hidden="true"
+    class="absolute inset-0 w-full h-full object-cover object-center scale-[1.01] select-none pointer-events-none"
+  >
+    <source src={videoSrc} type="video/mp4" />
+  </video>
+
+  <!-- Layered directional scrim for crisp typography contrast -->
+  <div
+    aria-hidden="true"
+    class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/45"
+  ></div>
+  <div
+    aria-hidden="true"
+    class="absolute inset-0 bg-gradient-to-r from-black/55 via-transparent to-transparent"
+  ></div>
+
+  <!-- Hero Foreground Content -->
+  <div class="relative z-10 w-full padding-global pb-10 sm:pb-14 pt-32">
+    <div class="w-full flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+      <!-- Bottom-Left: Split-tone Display Headline + Dual CTA -->
+      <div class="max-w-4xl hero-enter">
+        <h1 class="text-4xl sm:text-5xl lg:text-[4rem] font-medium leading-[1.05] tracking-[-0.03em] text-white">
+          <span class="block">{line1}</span>
+          {line2 && <span class="block text-white/60">{line2}</span>}
+        </h1>
+
+        <div class="mt-8 flex flex-wrap items-center gap-3.5">
+          <!-- Primary White Kinetic Pill Button -->
+          <Button href={primaryLink.href || '/kontakt'} variant="primary-light">
+            {primaryLink.label}
+          </Button>
+
+          <!-- Secondary Dark Glass Kinetic Pill Button -->
+          <Button
+            href={secondaryLink.href || 'tel:+48781262626'}
+            variant="glass-dark"
+            icon={secondaryLink.href?.startsWith('tel:') ? 'phone' : 'arrow'}
+          >
+            {secondaryLink.label}
+          </Button>
+        </div>
+      </div>
+
+      <!-- Bottom-Right: Floating Glass Highlight / Case Study Card -->
+      <a
+        href="/certyfikaty"
+        class="hero-enter-delayed group flex items-center gap-4 p-3 rounded-xl bg-[#141518]/80 hover:bg-[#1A1C20]/90 backdrop-blur-xl border border-white/10 w-full sm:w-[360px] shadow-2xl shadow-black/40 transition-all duration-300 ease-spring hover:-translate-y-0.5"
+      >
+        <!-- Left Crimson Technical Thumbnail -->
+        <div class="w-20 h-20 rounded-lg overflow-hidden shrink-0 relative bg-gradient-to-br from-[#D92D20] via-[#912018] to-[#2D0A08] border border-white/10 flex items-center justify-center">
+          <div
+            aria-hidden="true"
+            class="absolute inset-0 opacity-35"
+            style="background-image: radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px); background-size: 8px 8px;"
+          ></div>
+          <svg class="w-7 h-7 text-white/90 relative z-10 group-hover:scale-110 transition-transform duration-300 ease-spring" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            <path d="m9 12 2 2 4-4" />
+          </svg>
+        </div>
+
+        <!-- Right Meta & Title -->
+        <div class="flex-1 min-w-0 flex flex-col justify-between py-0.5">
+          <p class="text-[13px] leading-snug text-white/95 mb-3">
+            Certyfikowane instalacje SSP, DSO i SKD dla obiektów komercyjnych
+          </p>
+          <div class="flex items-center justify-between text-[10px] uppercase tracking-[0.16em] text-white/60">
+            <span class="inline-flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-[1px] bg-[#D92D20]"></span>
+              <span>Standard PN-EN 54</span>
+            </span>
+            <span class="text-white/70 group-hover:translate-x-1 transition-transform duration-300 ease-spring">
+              →
+            </span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes heroFadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hero-enter {
+    animation: heroFadeUp 0.8s cubic-bezier(0.32, 0.72, 0, 1) both;
+  }
+
+  .hero-enter-delayed {
+    animation: heroFadeUp 0.8s cubic-bezier(0.32, 0.72, 0, 1) 0.12s both;
+  }
+</style>
