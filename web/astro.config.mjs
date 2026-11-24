@@ -3,6 +3,8 @@ import {defineConfig, envField} from 'astro/config'
 import cloudflare from '@astrojs/cloudflare'
 import sitemap from '@astrojs/sitemap'
 
+import tailwindcss from '@tailwindcss/vite';
+
 export default defineConfig({
   site: 'https://www.konektor.com.pl',
   trailingSlash: 'never',
@@ -10,6 +12,7 @@ export default defineConfig({
   // Pages are prerendered (static) by default. Only Astro Actions
   // (contact form) and pages with `export const prerender = false` run on the Worker.
   output: 'static',
+
   adapter: cloudflare({
     // Images come from the Sanity CDN (already resized/optimised), so no Worker-side transforms.
     imageService: 'passthrough',
@@ -43,5 +46,9 @@ export default defineConfig({
       TURNSTILE_SECRET_KEY: envField.string({context: 'server', access: 'secret', optional: true}),
       SANITY_API_READ_TOKEN: envField.string({context: 'server', access: 'secret', optional: true}),
     },
+  },
+
+  vite: {
+    plugins: [tailwindcss()],
   },
 })

@@ -3,18 +3,11 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 import {
   Flame,
   Volume2,
-  Lock,
   Camera,
-  ShieldCheck,
-  Building2,
   ArrowUpRight,
   PhoneCall,
-  Mail,
-  CheckCircle2,
-  AlertCircle,
   ExternalLink,
-  ChevronDown,
-  Sparkles
+  ChevronDown
 } from 'lucide-astro'
 ---
 
@@ -24,18 +17,18 @@ import {
     <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
       <div class="flex items-center gap-3">
         <a href="/" class="flex items-center gap-2">
-          <div class="w-8 h-8 rounded-lg bg-red-600 flex items-center justify-center text-white font-bold text-sm">
+          <div class="w-8 h-8 rounded-lg bg-red-600 flex items-center justify-center text-white text-sm">
             K
           </div>
-          <span class="font-bold tracking-tight text-slate-900 text-lg">KONEKTOR</span>
+          <span class="tracking-tight text-slate-900 text-lg font-normal">KONEKTOR</span>
         </a>
         <div class="h-4 w-px bg-slate-200 mx-2"></div>
-        <span class="text-xs font-semibold uppercase tracking-[0.2em] px-2.5 py-1 rounded-full bg-red-50 text-red-700 border border-red-200/60">
-          Component Lab
+        <span class="text-xs uppercase tracking-[0.2em] px-2.5 py-1 rounded-full bg-red-50 text-red-700 border border-red-200/60 font-light">
+          Component Lab · Urbanist
         </span>
       </div>
 
-      <div class="flex items-center gap-4 text-sm font-medium">
+      <div class="flex items-center gap-4 text-sm font-light">
         <a href="/design-guidelines" class="text-slate-600 hover:text-slate-900 transition-colors">
           ← Wróć do Guidelines
         </a>
@@ -46,28 +39,28 @@ import {
   <main class="min-h-screen bg-[#F8F9FA] text-slate-900 pb-36 px-6 max-w-7xl mx-auto">
     <!-- Intro -->
     <div class="pt-16 pb-12">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-600 text-xs font-semibold uppercase tracking-[0.2em] mb-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-600 text-xs uppercase tracking-[0.2em] mb-4 font-light">
         Interactive Sandbox
       </div>
-      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 mb-4">
-        Biblioteka Żywych Komponentów (Light Theme)
+      <h1 class="text-4xl sm:text-5xl tracking-tight text-slate-900 mb-4">
+        Biblioteka Żywych Komponentów (Urbanist 300 / 400)
       </h1>
-      <p class="text-slate-600 text-lg max-w-3xl leading-relaxed">
-        Przetestuj interakcje, stany najechania (hover), pola formularza, karty usług w technologii Double-Bezel oraz architekturę przycisków.
+      <p class="text-slate-600 text-lg sm:text-xl max-w-3xl leading-relaxed font-light">
+        Przetestuj interakcje, stany najechania (hover), pola formularza, karty usług w technologii Double-Bezel oraz architekturę przycisków w oparciu o czysty, lekki krój Urbanist.
       </p>
     </div>
 
     <!-- 1. BUTTONS & INTERACTIVE PILLS -->
     <section class="py-12 border-t border-slate-200/80">
       <div class="mb-8">
-        <span class="text-xs font-mono font-semibold uppercase text-slate-400 tracking-wider">01. Interakcje</span>
-        <h2 class="text-2xl font-bold tracking-tight text-slate-900">Przyciski & "Button-in-Button" Trailing Icon</h2>
-        <p class="text-slate-500 text-sm mt-1">Stworzone z myślą o urządzeniach dotykowych i myszach (haptic spring physics).</p>
+        <span class="text-xs uppercase text-slate-400 tracking-wider font-light">01. Interakcje</span>
+        <h2 class="text-2xl sm:text-3xl tracking-tight text-slate-900">Przyciski & "Button-in-Button" Trailing Icon</h2>
+        <p class="text-slate-500 text-sm mt-1 font-light">Stworzone z myślą o urządzeniach dotykowych i myszach (haptic spring physics).</p>
       </div>
 
-      <div class="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-wrap gap-6 items-center">
+      <div class="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-wrap gap-6 items-center font-light">
         <!-- Primary Action Button -->
-        <button class="group inline-flex items-center gap-3 pl-6 pr-2.5 py-2.5 rounded-full bg-red-600 hover:bg-red-700 text-white font-semibold text-sm transition-all duration-300 shadow-lg shadow-red-600/20 active:scale-95">
+        <button class="group inline-flex items-center gap-3 pl-6 pr-2.5 py-2.5 rounded-full bg-red-600 hover:bg-red-700 text-white text-sm transition-all duration-300 shadow-lg shadow-red-600/20 active:scale-95">
           <span>Zapytaj o darmową wycenę</span>
           <span class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center group-hover:scale-110 group-hover:bg-white/30 transition-all duration-300">
             <ArrowUpRight class="w-4 h-4 text-white" />
@@ -75,7 +68,7 @@ import {
         </button>
 
         <!-- Secondary Corporate Button -->
-        <button class="group inline-flex items-center gap-3 pl-6 pr-2.5 py-2.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm transition-all duration-300 active:scale-95">
+        <button class="group inline-flex items-center gap-3 pl-6 pr-2.5 py-2.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white text-sm transition-all duration-300 active:scale-95">
           <span>Poznaj nasze usługi</span>
           <span class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300">
             <ArrowUpRight class="w-4 h-4 text-white" />
@@ -83,7 +76,7 @@ import {
         </button>
 
         <!-- Outline / Subtle Pill -->
-        <button class="group inline-flex items-center gap-3 pl-6 pr-2.5 py-2.5 rounded-full bg-white border border-slate-300 hover:border-slate-400 hover:bg-slate-50 text-slate-800 font-semibold text-sm transition-all duration-300 shadow-sm active:scale-95">
+        <button class="group inline-flex items-center gap-3 pl-6 pr-2.5 py-2.5 rounded-full bg-white border border-slate-300 hover:border-slate-400 hover:bg-slate-50 text-slate-800 text-sm transition-all duration-300 shadow-sm active:scale-95">
           <span>Pobierz certyfikat CNBOP</span>
           <span class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-slate-200 transition-colors">
             <ExternalLink class="w-4 h-4 text-slate-600" />
@@ -91,7 +84,7 @@ import {
         </button>
 
         <!-- Emergency / Hotline Call Button -->
-        <a href="tel:+48781262626" class="inline-flex items-center gap-2.5 px-5 py-3 rounded-full bg-red-50 border border-red-200 text-red-700 font-bold text-sm hover:bg-red-100 transition-colors">
+        <a href="tel:+48781262626" class="inline-flex items-center gap-2.5 px-5 py-3 rounded-full bg-red-50 border border-red-200 text-red-700 text-sm hover:bg-red-100 transition-colors">
           <PhoneCall class="w-4 h-4 text-red-600 animate-pulse" />
           <span>+48 781 262 626 (Serwis 24/7)</span>
         </a>
@@ -101,9 +94,9 @@ import {
     <!-- 2. SERVICE CARDS (BENTO & DOUBLE-BEZEL) -->
     <section class="py-12 border-t border-slate-200/80">
       <div class="mb-8">
-        <span class="text-xs font-mono font-semibold uppercase text-slate-400 tracking-wider">02. Prezentacja Usług</span>
-        <h2 class="text-2xl font-bold tracking-tight text-slate-900">Karty Usług w Strukturze Double-Bezel</h2>
-        <p class="text-slate-500 text-sm mt-1">Architektura asymetryczna dopasowana do oferty firmy Konektor.</p>
+        <span class="text-xs uppercase text-slate-400 tracking-wider font-light">02. Prezentacja Usług</span>
+        <h2 class="text-2xl sm:text-3xl tracking-tight text-slate-900">Karty Usług w Strukturze Double-Bezel</h2>
+        <p class="text-slate-500 text-sm mt-1 font-light">Architektura inżynieryjna dopasowana do oferty firmy Konektor.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -114,19 +107,19 @@ import {
               <div class="w-12 h-12 rounded-2xl bg-red-50 border border-red-200 text-red-600 flex items-center justify-center mb-6 shadow-sm">
                 <Flame class="w-6 h-6" />
               </div>
-              <div class="flex items-center gap-2 mb-2">
-                <span class="text-[11px] font-bold uppercase tracking-wider text-red-600 font-mono">EN 54 / CNBOP</span>
+              <div class="flex items-center gap-2 mb-2 font-light">
+                <span class="text-[11px] uppercase tracking-wider text-red-600">EN 54 / CNBOP</span>
               </div>
-              <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-red-600 transition-colors">
+              <h3 class="text-xl sm:text-2xl text-slate-900 mb-3 group-hover:text-red-600 transition-colors">
                 Systemy Sygnalizacji Pożaru
               </h3>
-              <p class="text-slate-600 text-sm leading-relaxed mb-6">
+              <p class="text-slate-600 text-base leading-relaxed mb-6 font-light">
                 Wczesna detekcja dymu i ognia, centrale pożarowe, automatyczne uruchamianie procedur oddymiania i powiadamiania straży pożarnej.
               </p>
             </div>
 
-            <div class="pt-6 border-t border-slate-100 flex items-center justify-between">
-              <span class="text-xs font-medium text-slate-400">Oferta & Serwis</span>
+            <div class="pt-6 border-t border-slate-100 flex items-center justify-between font-light">
+              <span class="text-xs text-slate-400">Oferta & Serwis</span>
               <span class="w-8 h-8 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center group-hover:bg-red-600 group-hover:text-white transition-all duration-300">
                 <ArrowUpRight class="w-4 h-4" />
               </span>
@@ -141,19 +134,19 @@ import {
               <div class="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-200 text-blue-600 flex items-center justify-center mb-6 shadow-sm">
                 <Volume2 class="w-6 h-6" />
               </div>
-              <div class="flex items-center gap-2 mb-2">
-                <span class="text-[11px] font-bold uppercase tracking-wider text-blue-600 font-mono">Dźwięk Ewakuacyjny</span>
+              <div class="flex items-center gap-2 mb-2 font-light">
+                <span class="text-[11px] uppercase tracking-wider text-blue-600">Dźwięk Ewakuacyjny</span>
               </div>
-              <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
+              <h3 class="text-xl sm:text-2xl text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
                 Dźwiękowe Systemy Ostrzegawcze
               </h3>
-              <p class="text-slate-600 text-sm leading-relaxed mb-6">
+              <p class="text-slate-600 text-base leading-relaxed mb-6 font-light">
                 Czyste i zrozumiałe komunikaty głosowe sterujące ewakuacją ludzi. Precyzyjne strojenie akustyczne dla galerii i biurowców.
               </p>
             </div>
 
-            <div class="pt-6 border-t border-slate-100 flex items-center justify-between">
-              <span class="text-xs font-medium text-slate-400">Oferta & Serwis</span>
+            <div class="pt-6 border-t border-slate-100 flex items-center justify-between font-light">
+              <span class="text-xs text-slate-400">Oferta & Serwis</span>
               <span class="w-8 h-8 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
                 <ArrowUpRight class="w-4 h-4" />
               </span>
@@ -168,19 +161,19 @@ import {
               <div class="w-12 h-12 rounded-2xl bg-slate-100 border border-slate-200 text-slate-800 flex items-center justify-center mb-6 shadow-sm">
                 <Camera class="w-6 h-6" />
               </div>
-              <div class="flex items-center gap-2 mb-2">
-                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-600 font-mono">Wideo & Kontrola</span>
+              <div class="flex items-center gap-2 mb-2 font-light">
+                <span class="text-[11px] uppercase tracking-wider text-slate-600">Wideo & Kontrola</span>
               </div>
-              <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-slate-700 transition-colors">
+              <h3 class="text-xl sm:text-2xl text-slate-900 mb-3 group-hover:text-slate-700 transition-colors">
                 Monitoring Wizyjny & SKD
               </h3>
-              <p class="text-slate-600 text-sm leading-relaxed mb-6">
+              <p class="text-slate-600 text-base leading-relaxed mb-6 font-light">
                 Telewizja dozorowa 4K z analityką AI, czytniki biometryczne, bramki wejściowe i rejestracja czasu pracy personelu.
               </p>
             </div>
 
-            <div class="pt-6 border-t border-slate-100 flex items-center justify-between">
-              <span class="text-xs font-medium text-slate-400">Oferta & Serwis</span>
+            <div class="pt-6 border-t border-slate-100 flex items-center justify-between font-light">
+              <span class="text-xs text-slate-400">Oferta & Serwis</span>
               <span class="w-8 h-8 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center group-hover:bg-slate-900 group-hover:text-white transition-all duration-300">
                 <ArrowUpRight class="w-4 h-4" />
               </span>
@@ -193,32 +186,32 @@ import {
     <!-- 3. TRUST & STATS ARCHETYPE -->
     <section class="py-12 border-t border-slate-200/80">
       <div class="mb-8">
-        <span class="text-xs font-mono font-semibold uppercase text-slate-400 tracking-wider">03. Dowód Społeczny</span>
-        <h2 class="text-2xl font-bold tracking-tight text-slate-900">Liczby i Referencje (Kolejność Optyczna)</h2>
+        <span class="text-xs uppercase text-slate-400 tracking-wider font-light">03. Dowód Społeczny</span>
+        <h2 class="text-2xl sm:text-3xl tracking-tight text-slate-900">Liczby i Doświadczenie</h2>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 font-light">
         <div class="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm text-center">
-          <div class="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight font-mono mb-2">
-            +20 <span class="text-red-600 text-2xl align-top font-sans">lat</span>
+          <div class="text-4xl sm:text-5xl text-slate-900 tracking-tight mb-2 font-normal">
+            +20 <span class="text-red-600 text-2xl align-top font-light">lat</span>
           </div>
-          <p class="text-sm font-semibold text-slate-800">Doświadczenia na rynku</p>
+          <p class="text-base text-slate-800">Doświadczenia na rynku</p>
           <p class="text-xs text-slate-500 mt-1">Ciągła obecność w branży od lat 2000</p>
         </div>
 
         <div class="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm text-center">
-          <div class="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight font-mono mb-2">
-            100<span class="text-red-600 text-3xl align-top font-sans">%</span>
+          <div class="text-4xl sm:text-5xl text-slate-900 tracking-tight mb-2 font-normal">
+            100<span class="text-red-600 text-3xl align-top font-light">%</span>
           </div>
-          <p class="text-sm font-semibold text-slate-800">Zgodności z normami</p>
+          <p class="text-base text-slate-800">Zgodności z normami</p>
           <p class="text-xs text-slate-500 mt-1">Certyfikowane instalacje i odbiory PSP</p>
         </div>
 
         <div class="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm text-center">
-          <div class="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight font-mono mb-2">
-            80<span class="text-red-600 text-3xl align-top font-sans">%</span>
+          <div class="text-4xl sm:text-5xl text-slate-900 tracking-tight mb-2 font-normal">
+            80<span class="text-red-600 text-3xl align-top font-light">%</span>
           </div>
-          <p class="text-sm font-semibold text-slate-800">Klientów powracających</p>
+          <p class="text-base text-slate-800">Klientów powracających</p>
           <p class="text-xs text-slate-500 mt-1">Stałe umowy serwisowe i audytowe</p>
         </div>
       </div>
@@ -227,53 +220,53 @@ import {
     <!-- 4. FORMULARZ KONTAKTOWY (CLEAN ENTERPRISE LIGHT) -->
     <section class="py-12 border-t border-slate-200/80">
       <div class="mb-8">
-        <span class="text-xs font-mono font-semibold uppercase text-slate-400 tracking-wider">04. Formularze & Inputy</span>
-        <h2 class="text-2xl font-bold tracking-tight text-slate-900">Stylistyka Formularza Kontaktowego</h2>
-        <p class="text-slate-500 text-sm mt-1">Zaprojektowane z widocznym stanem skupienia (focus ring), czystymi etykietami i czytelnymi błędami.</p>
+        <span class="text-xs uppercase text-slate-400 tracking-wider font-light">04. Formularze & Inputy</span>
+        <h2 class="text-2xl sm:text-3xl tracking-tight text-slate-900">Stylistyka Formularza Kontaktowego</h2>
+        <p class="text-slate-500 text-sm mt-1 font-light">Zaprojektowane z delikatnym obrysem, czytelnym krojem pisma i subtelnym focus-ringiem.</p>
       </div>
 
-      <div class="max-w-2xl bg-white rounded-3xl border border-slate-200 shadow-sm p-8 sm:p-10">
+      <div class="max-w-2xl bg-white rounded-3xl border border-slate-200 shadow-sm p-8 sm:p-10 font-light">
         <form class="space-y-5" onsubmit="event.preventDefault();">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+              <label class="block text-xs text-slate-700 uppercase tracking-wider mb-2 font-normal">
                 Imię i nazwisko <span class="text-red-600">*</span>
               </label>
               <input
                 type="text"
                 placeholder="np. Jan Kowalski"
-                class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-red-600/30 focus:border-red-600 transition-all placeholder:text-slate-400"
+                class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-red-600/30 focus:border-red-600 transition-all placeholder:text-slate-400 font-light"
               />
             </div>
             <div>
-              <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+              <label class="block text-xs text-slate-700 uppercase tracking-wider mb-2 font-normal">
                 Adres e-mail <span class="text-red-600">*</span>
               </label>
               <input
                 type="email"
                 placeholder="jan@firma.pl"
-                class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-red-600/30 focus:border-red-600 transition-all placeholder:text-slate-400"
+                class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-red-600/30 focus:border-red-600 transition-all placeholder:text-slate-400 font-light"
               />
             </div>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+              <label class="block text-xs text-slate-700 uppercase tracking-wider mb-2 font-normal">
                 Telefon kontaktowy
               </label>
               <input
                 type="tel"
                 placeholder="+48 ___ ___ ___"
-                class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-red-600/30 focus:border-red-600 transition-all placeholder:text-slate-400"
+                class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-red-600/30 focus:border-red-600 transition-all placeholder:text-slate-400 font-light"
               />
             </div>
             <div>
-              <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+              <label class="block text-xs text-slate-700 uppercase tracking-wider mb-2 font-normal">
                 Interesująca usługa
               </label>
               <div class="relative">
-                <select class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-red-600/30 focus:border-red-600 transition-all appearance-none cursor-pointer">
+                <select class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-red-600/30 focus:border-red-600 transition-all appearance-none cursor-pointer font-light">
                   <option>Systemy Sygnalizacji Pożaru (SSP)</option>
                   <option>Dźwiękowe Systemy Ostrzegawcze (DSO)</option>
                   <option>Systemy Sygnalizacji Włamania (SSWiN)</option>
@@ -287,27 +280,27 @@ import {
           </div>
 
           <div>
-            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+            <label class="block text-xs text-slate-700 uppercase tracking-wider mb-2 font-normal">
               Opis obiektu lub zakres zapytania <span class="text-red-600">*</span>
             </label>
             <textarea
               rows="4"
               placeholder="Wpisz metraż obiektu, lokalizację lub specyfikę wymagań..."
-              class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-red-600/30 focus:border-red-600 transition-all placeholder:text-slate-400"
+              class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-red-600/30 focus:border-red-600 transition-all placeholder:text-slate-400 font-light"
             ></textarea>
           </div>
 
           <div class="pt-2">
             <button
               type="submit"
-              class="w-full group inline-flex items-center justify-center gap-3 py-3.5 px-6 rounded-full bg-red-600 hover:bg-red-700 text-white font-semibold text-sm transition-all shadow-lg shadow-red-600/25 active:scale-[0.98]"
+              class="w-full group inline-flex items-center justify-center gap-3 py-3.5 px-6 rounded-full bg-red-600 hover:bg-red-700 text-white text-sm transition-all shadow-lg shadow-red-600/25 active:scale-[0.98] font-light"
             >
               <span>Wyślij zapytanie ofertowe</span>
               <span class="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center group-hover:translate-x-1 transition-transform">
                 <ArrowUpRight class="w-4 h-4 text-white" />
               </span>
             </button>
-            <p class="text-center text-xs text-slate-400 mt-3">
+            <p class="text-center text-xs text-slate-400 mt-3 font-light">
               Odpowiadamy w ciągu maksymalnie 24 godzin roboczych.
             </p>
           </div>
